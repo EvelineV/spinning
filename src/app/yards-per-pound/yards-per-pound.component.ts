@@ -33,7 +33,6 @@ export class YardsPerPoundComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("submit", JSON.stringify(this.model));
     const length_in_meters = this.model.length * conversions[this.model.lengthUnits];
     const weight_in_grams = this.model.weight * conversions[this.model.weightUnits];
     this.meters_per_kg = 1000 * length_in_meters / weight_in_grams;
