@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="length-unit">Length unit</label>
+        <select type="string" name="length-unit" required [(ngModel)]="model.lengthUnits">
+            <option value="meter">meters</option>
+            <option value="yard">yards</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="length">Length</label>
+        <input type="number" name="length" required min=0 max=100000 [(ngModel)]="model.length">
+    </div>
+
+    <div class="form-group">
+        <label for="weight-unit">Weight unit</label>
+        <select type="string" name="weight-unit" required [(ngModel)]="model.weightUnits">
+            <option value="gram">grams</option>
+            <option value="ounce">ounces</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" required min=0 max=100000 [(ngModel)]="model.weight">
+    </div>
+
+    <button type="submit">Calculate!</button>
+</form>
+
+<p *ngIf="this.meters_per_kg">
+    You have {{ this.meters_per_kg.toFixed(3) }} m/kg or {{ this.yards_per_pound.toFixed(3) }} ypp.
+</p>

@@ -17,6 +17,19 @@ h1 {
     color: #333;
     font-family: Cambria, Georgia, serif;
   }
+  input {
+    text-align: right;
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: none;
+    font-size: 18px;
+  }
+  select {
+    background-color: white;
+    border-radius: 5px;
+    border-width: 1px;
+    font-size: 18px;
+  }
   button {
     background-color: #eee;
     border: none;

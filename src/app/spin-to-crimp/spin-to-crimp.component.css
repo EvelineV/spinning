@@ -17,19 +17,7 @@ div, p {
   }
   
   input {
-    text-align: right;
-    border-radius: 5px;
-    border-width: 1px;
     width: 50px;
-    background-color: none;
-    font-size: 18px;
-  }
-  
-  select {
-    background-color: white;
-    border-radius: 5px;
-    border-width: 1px;
-    font-size: 18px;
   }
   
   select#num_ply {
