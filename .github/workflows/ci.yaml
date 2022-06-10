@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main, refactor/angular ]
-  pull_request:
     branches: [ main ]
+  pull_request:
+    branches: [ main, gh-pages ]
 
 jobs:
   build:
