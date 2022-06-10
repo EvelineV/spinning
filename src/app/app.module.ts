@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpinToCrimpComponent } from './spin-to-crimp/spin-to-crimp.component';
+import { KnitSocksComponent } from './knit-socks/knit-socks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpinToCrimpComponent
+    SpinToCrimpComponent,
+    KnitSocksComponent
   ],
   imports: [
     BrowserModule,
