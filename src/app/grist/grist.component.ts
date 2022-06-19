@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-class yppValues {
+export class gristValues {
   constructor(
     public lengthUnits: string,
     public weightUnits: string,
@@ -25,18 +25,30 @@ const conversions: Record<string, number> = {
 export class GristComponent implements OnInit {
 
   constructor() { }
-  model = new yppValues("meter", "gram", 200, 100)
+  model = new gristValues("meter", "gram", 200, 100)
   meters_per_kg = 0;
   yards_per_pound = 0;
 
   ngOnInit(): void {
   }
 
+  static calculate(v: gristValues): number[] {
+    const length_in_meters = v.length * conversions[v.lengthUnits];
+    const weight_in_grams = v.weight * conversions[v.weightUnits];
+    const meters_per_kg = 1000 * length_in_meters / weight_in_grams;
+    const yards_per_pound = 1000 * (meters_per_kg / conversions["yard"]) / conversions["pound"];
+    return [meters_per_kg, yards_per_pound];
+  }
+
   onSubmit() {
-    const length_in_meters = this.model.length * conversions[this.model.lengthUnits];
-    const weight_in_grams = this.model.weight * conversions[this.model.weightUnits];
-    this.meters_per_kg = 1000 * length_in_meters / weight_in_grams;
-    this.yards_per_pound = 1000 * (this.meters_per_kg / conversions["yard"]) / conversions["pound"];
+    [this.meters_per_kg, this.yards_per_pound] = GristComponent.calculate(
+      new gristValues(
+        this.model.lengthUnits,
+        this.model.weightUnits,
+        this.model.length,
+        this.model.weight,
+      )
+    );
   }
 
 }
