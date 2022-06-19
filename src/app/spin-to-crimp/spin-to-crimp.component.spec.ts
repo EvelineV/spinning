@@ -26,7 +26,7 @@ describe('Calculate Spin To Crimp', () => {
   it(`should calculate Rachel's example correctly`, () => {
     const ws = new WheelSettings(5, 17, 17, 20, 12, 2, "ross");
     const expected = new Results(9.803921568627448, 5.88235294117647, 10);
-    const got = SpinToCrimpComponent.calculate(ws)
+    const got = SpinToCrimpComponent.calculate(ws);
     expect(got).toEqual(expected);
   })
 });

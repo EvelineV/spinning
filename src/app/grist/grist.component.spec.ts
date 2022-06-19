@@ -25,7 +25,6 @@ describe('GristComponent', () => {
 describe('Grist Calculation', () => {
   it('should correctly calculate dummy values', () => {
     const values = GristComponent.calculate(new gristValues("meter", "gram", 200, 100));
-    console.log("values", values);
     expect(values[0]).toEqual(2000);
     expect(values[1]).toBeCloseTo(4822.013167506075);
   })
