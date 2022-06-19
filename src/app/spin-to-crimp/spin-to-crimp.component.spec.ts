@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpinToCrimpComponent } from './spin-to-crimp.component';
+import { Results, SpinToCrimpComponent, WheelSettings } from './spin-to-crimp.component';
 
 describe('SpinToCrimpComponent', () => {
   let component: SpinToCrimpComponent;
@@ -8,9 +8,9 @@ describe('SpinToCrimpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpinToCrimpComponent ]
+      declarations: [SpinToCrimpComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SpinToCrimpComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,13 @@ describe('SpinToCrimpComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+});
+
+describe('Calculate Spin To Crimp', () => {
+  it(`should calculate Rachel's example correctly`, () => {
+    const ws = new WheelSettings(5, 17, 17, 20, 12, 2, "ross");
+    const expected = new Results(9.803921568627448, 5.88235294117647, 10);
+    const got = SpinToCrimpComponent.calculate(ws)
+    expect(got).toEqual(expected);
+  })
 });
