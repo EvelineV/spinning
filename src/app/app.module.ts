@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { SpinToCrimpComponent } from './spin-to-crimp/spin-to-crimp.component';
 import { KnitSocksComponent } from './knit-socks/knit-socks.component';
 import { GristComponent } from './grist/grist.component';
+import { UnitSelectorComponent } from './unit-selector/unit-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpinToCrimpComponent,
     KnitSocksComponent,
-    GristComponent
+    GristComponent,
+    UnitSelectorComponent
   ],
   imports: [
     BrowserModule,
