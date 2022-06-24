@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UnitConverterService } from '../unit-converter.service';
 
-import { GristComponent, gristValues } from './grist.component';
+import { GristComponent } from './grist.component';
 
 describe('GristComponent', () => {
   let component: GristComponent;
@@ -8,7 +9,8 @@ describe('GristComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GristComponent]
+      declarations: [GristComponent],
+      providers: [UnitConverterService],
     })
       .compileComponents();
 
@@ -20,12 +22,25 @@ describe('GristComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
 
-describe('Grist Calculation', () => {
-  it('should correctly calculate dummy values', () => {
-    const values = GristComponent.calculate(new gristValues("meter", "gram", 200, 100));
-    expect(values[0]).toEqual(2000);
-    expect(values[1]).toBeCloseTo(4822.013167506075);
-  })
-})
+  it('calculates initial values in metric', () => {
+    expect(component.grist).toEqual(2000);
+    expect(component.unitConverterService.getConverters()['long_length'].name).toBe('meter');
+  });
+
+  it('calculates initial values in imperial', () => {
+    component.unitConverterService.updateSelectedUnit('imperial');
+    expect(component.unitConverterService.getConverters()['long_length'].name).toEqual("yards");
+    const yards = 200 / component.converters['long_length'].factor;
+    const ounces = 100 / component.converters['small_weight'].factor;
+    expect(yards).toBe(218.72265966754156);
+    expect(ounces).toBe(3.527399072294044);
+    component.length = yards;
+    component.weight = ounces;
+
+    component.calculate();
+    expect(component.grist).toBeCloseTo(992.1084864391951);
+    expect(component.grist * 2.02).toBeCloseTo(2004.0591426071742);
+  });
+
+});

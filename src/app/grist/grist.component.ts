@@ -1,21 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export class gristValues {
-  constructor(
-    public lengthUnits: string,
-    public weightUnits: string,
-    public length: number,
-    public weight: number,
-  ) { }
-}
-
-const conversions: Record<string, number> = {
-  gram: 1,
-  ounce: 28.3495,
-  pound: 453.592,
-  meter: 1,
-  yard: 0.9144,
-}
+import { UnitConverterService } from '../unit-converter.service';
 
 @Component({
   selector: 'app-grist',
@@ -24,31 +8,49 @@ const conversions: Record<string, number> = {
 })
 export class GristComponent implements OnInit {
 
-  constructor() { }
-  model = new gristValues("meter", "gram", 200, 100)
-  meters_per_kg = 0;
-  yards_per_pound = 0;
+  converters: any;
+  length = 200;
+  weight = 100;
+  grist = 0;
+
+  constructor(
+    public unitConverterService: UnitConverterService,
+  ) {
+    this.unitConverterService.selectedChange.subscribe((_value) => {
+      // reset converters
+      this.length = this.length * this.converters.long_length.factor;
+      this.weight = this.weight * this.converters.small_weight.factor;
+
+      // update converters
+      this.converters = unitConverterService.getConverters();
+
+      // set length and weight according to new converters
+      this.length = this.length / this.converters.long_length.factor;
+      this.weight = this.weight / this.converters.small_weight.factor;
+
+      // at last, update calculation
+      this.calculate()
+    })
+  }
 
   ngOnInit(): void {
+    this.converters = this.unitConverterService.getConverters();
+    this.calculate();
   }
 
-  static calculate(v: gristValues): number[] {
-    const length_in_meters = v.length * conversions[v.lengthUnits];
-    const weight_in_grams = v.weight * conversions[v.weightUnits];
-    const meters_per_kg = 1000 * length_in_meters / weight_in_grams;
-    const yards_per_pound = 1000 * (meters_per_kg / conversions["yard"]) / conversions["pound"];
-    return [meters_per_kg, yards_per_pound];
+  calculate(): void {
+    const normalized_length = this.length;
+    const normalized_weight = this.weight * this.converters.small_weight.factor;
+    this.grist = (normalized_length / normalized_weight) * this.converters.large_weight.factor;
   }
 
-  onSubmit() {
-    [this.meters_per_kg, this.yards_per_pound] = GristComponent.calculate(
-      new gristValues(
-        this.model.lengthUnits,
-        this.model.weightUnits,
-        this.model.length,
-        this.model.weight,
-      )
-    );
+  onLengthChange(event: any) {
+    this.length = event.target.value as number;
+    this.calculate();
   }
 
+  onWeightChange(event: any) {
+    this.weight = event.target.value as number;
+    this.calculate();
+  }
 }

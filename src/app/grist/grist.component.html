@@ -1,33 +1,18 @@
-<form (ngSubmit)="onSubmit()">
+<form>
     <div class="form-group">
-        <label for="length-unit">Length unit</label>
-        <select type="string" name="length-unit" required [(ngModel)]="model.lengthUnits">
-            <option value="meter">meters</option>
-            <option value="yard">yards</option>
-        </select>
+        <label for="length_input">Length ({{ this.converters.long_length.name }})</label>
+        <input type="number" name="length_input" required min=1 max=100000 #length_input value={{this.length}}
+            (change)=" onLengthChange($event)">
     </div>
 
     <div class="form-group">
-        <label for="length">Length</label>
-        <input type="number" name="length" required min=0 max=100000 [(ngModel)]="model.length">
+        <label for="weight_input">Weight ({{ this.converters.small_weight.name }})</label>
+        <input type="number" name="weight_input" required min=1 max=100000 #weight_input value={{this.weight}}
+            (change)="onWeightChange($event)">
     </div>
-
-    <div class="form-group">
-        <label for="weight-unit">Weight unit</label>
-        <select type="string" name="weight-unit" required [(ngModel)]="model.weightUnits">
-            <option value="gram">grams</option>
-            <option value="ounce">ounces</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="weight">Weight</label>
-        <input type="number" name="weight" required min=0 max=100000 [(ngModel)]="model.weight">
-    </div>
-
-    <button type="submit">Calculate!</button>
 </form>
 
-<p *ngIf="this.meters_per_kg">
-    You have {{ this.meters_per_kg.toFixed(3) }} m/kg or {{ this.yards_per_pound.toFixed(3) }} yards per pound.
+<p *ngIf="this.grist">
+    You have {{ this.grist.toFixed(2) }} {{ this.converters.long_length.name }} per {{
+    this.converters.large_weight.name }}.
 </p>
