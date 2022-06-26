@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UnitConverterService } from '../unit-converter.service';
 
 export class WheelSettings {
   constructor(
@@ -27,14 +28,21 @@ export class Results {
 })
 export class SpinToCrimpComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  converters: any;
   model = new WheelSettings(5, 17, 17, 20, 12, 2, "ross");
   submitted = false;
   results = new Results(0, 0, 0);
+
+  constructor(
+    public unitConverterService: UnitConverterService,
+  ) {
+    this.unitConverterService.selectedChange.subscribe((_value) => {
+      this.converters = unitConverterService.getConverters();
+    })
+  }
+
+  ngOnInit(): void {
+  }
 
   static calculate(ws: WheelSettings): Results {
     const multiplier: Record<string, Record<number, number>> = {

@@ -1,0 +1,15 @@
+select {
+    background-color: #008182;
+    border-width: 0px;
+    margin-right: 2em;
+    padding: 8px;
+    text-align: center;
+}
+
+* {
+    color: white;
+}
+
+label {
+    font-weight: lighter;
+}
