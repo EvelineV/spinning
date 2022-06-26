@@ -1,38 +1,9 @@
-div, p {
-    font-family: sans-serif;
-    font-size: 18px;
-    margin: 50px;
-    max-width: 1000px;
-  }
-  
-  button {
-    border-width: 1px;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: orange;
-    border-color: orange;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  input {
-    width: 50px;
-  }
-  
-  select#num_ply {
-    width: 55px;
-    text-align: right;
-  }
-  
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  /* Firefox */
-  input[type=number] {
-    -moz-appearance: textfield;
-  }
+select#num_ply {
+  width: 70px;
+  text-align: right;
+}
+
+input {
+  width: 70px;
+  font-size: 18px;
+}
