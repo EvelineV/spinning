@@ -23,10 +23,18 @@ describe('SpinToCrimpComponent', () => {
 });
 
 describe('Calculate Spin To Crimp', () => {
-  it(`should calculate Rachel's example correctly`, () => {
+  it(`should calculate Rachel's example correctly in inches`, () => {
     const ws = new WheelSettings(5, 17, 17, 20, 12, 2, "ross");
     const expected = new Results(9.803921568627448, 5.88235294117647, 10);
-    const got = SpinToCrimpComponent.calculate(ws);
+    const got = SpinToCrimpComponent.calculate(ws, "inches");
+    expect(got).toEqual(expected);
+  });
+
+  it(`should calculate Rachel's example correctly in cm`, () => {
+    const ws = new WheelSettings(5, 17, 17, 50, 30, 2, "ross");
+    const expected = new Results(9.649529102979773, 5.789717461787864, 10);
+    const got = SpinToCrimpComponent.calculate(ws, "centimeter");
     expect(got).toEqual(expected);
   })
+
 });
