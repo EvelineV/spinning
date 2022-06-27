@@ -35,6 +35,9 @@ export class GristComponent implements OnInit {
 
   ngOnInit(): void {
     this.converters = this.unitConverterService.getConverters();
+    if (this.converters.small_weight.name === 'ounces') {
+      this.weight = 3;
+    }
     this.calculate();
   }
 
