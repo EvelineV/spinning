@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Plied WPI</h2>
+  <p>Estimate the weight of your plied yarn based on its singles weight. Note this does not apply to cable-plied yarn and other fancy structures, only to traditional plying!</p>
+  <form>
+      <div class="form-group">
+          <label for="singles_wpi">Singles WPI</label>
+          <input type="number" name="singles_wpi" required min=2 max=100 value={{this.singles_wpi}}
+          (change)="onSinglesWPIChange($event)">
+      </div>
+      <div class="form-group">
+        <label for="num_ply">Number of plies</label><br>
+        <input type="number" name="num_ply" required min=2 max=5 step=1 value={{this.num_ply}}
+          (change)="onNumPlyChange($event)">
+    </div>
+  </form>
+
+  <p *ngIf="plied_wpi">
+      You will have approximately {{ plied_wpi.toFixed(1) }} WPI in the plied yarn before washing. Note that the yarn can puff up (get thicker) during certain finishing techniques such as thwacking, or get skinnier when drying under weight.
+  </p>
+</div>

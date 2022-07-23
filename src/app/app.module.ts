@@ -8,6 +8,7 @@ import { SpinToCrimpComponent } from './spin-to-crimp/spin-to-crimp.component';
 import { KnitSocksComponent } from './knit-socks/knit-socks.component';
 import { GristComponent } from './grist/grist.component';
 import { UnitSelectorComponent } from './unit-selector/unit-selector.component';
+import { PliedWpiComponent } from './plied-wpi/plied-wpi.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UnitSelectorComponent } from './unit-selector/unit-selector.component';
     SpinToCrimpComponent,
     KnitSocksComponent,
     GristComponent,
-    UnitSelectorComponent
+    UnitSelectorComponent,
+    PliedWpiComponent,
   ],
   imports: [
     BrowserModule,
