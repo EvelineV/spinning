@@ -115,6 +115,12 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://evelinev.github.io/spinning/"
+          }
         }
       }
     }

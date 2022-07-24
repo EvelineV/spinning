@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng deploy --base-href=/spinning/",
+    "deploy": "ng deploy spinning --base-href=/spinning/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --browsers=ChromeHeadless --progress=false --watch=false --code-coverage --source-map=false"
   },
