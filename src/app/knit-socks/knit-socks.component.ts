@@ -10,6 +10,7 @@ export class KnitSocksComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("coming soon!")
   }
 
 }

@@ -4,6 +4,10 @@ Some doodles around knitting, spinning, fibre arts and other hobbies. [Live depl
 
 NodeJS v18.3.0 with NPM 8.11.0
 
+```
+npm run deploy
+```
+
 ## To Do:
 
 - ~Add service to keep track of metric vs imperial units~
