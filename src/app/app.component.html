@@ -1,0 +1,16 @@
+<nav>
+  <ul>
+    <li><a routerLink="">Home</a></li>
+    <li><a routerLink="/spin-to-crimp" routerLinkActive="active">Spin to the crimp</a></li>
+    <li><a routerLink="/grist" routerLinkActive="active">Grist</a></li>
+    <li><a routerLink="/plied-wpi" routerLinkActive="active">Plied WPI</a></li>
+    <li><a routerLink="/knit-socks" routerLinkActive="active">Knit socks</a></li>
+    <li>
+      <app-unit-selector>
+      </app-unit-selector>
+    </li>
+  </ul>
+</nav>
+
+<h1>{{title | titlecase }} calculators</h1>
+<router-outlet></router-outlet>
