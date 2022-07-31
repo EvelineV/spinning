@@ -17,6 +17,8 @@ ng run spinning:deploy
 - ~Add formula to go from singles WPI to plied WPI~
 - ~Deploy Angular version to GitHub pages~
 - Add Sock knitting app (convert from React) and add tests, both units
+- Add Mitten Knitting app
+- Add Home app with welcome text and inspiration
 - Immediate calculation without calculate button
 - Angular form validation on the other forms (not only spin-to-the-crimp)
 - more tests to each calculate function
