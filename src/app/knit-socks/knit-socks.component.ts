@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitConverterService } from '../unit-converter.service';
-import { FootMeasurements, GaugeSettings } from './types';
+import { FootMeasurements, GaugeSettings, SockInstructions } from './types';
 import { defaultDistanceInCM, defaultDistanceInInches } from './constants';
+import { calculateSock } from './calculators';
 
 @Component({
   selector: 'app-knit-socks',
@@ -14,7 +15,7 @@ export class KnitSocksComponent implements OnInit {
   footModel = new FootMeasurements(23, 6, 22, 24);
   gaugeModel = new GaugeSettings(defaultDistanceInCM, defaultDistanceInCM, 30, 42, "2.25mm DPN", "Random Superwash Sock");
   submitted = false;
-  instructions: any;
+  instructions?: SockInstructions;
 
   constructor(
     public unitConverterService: UnitConverterService,
@@ -44,7 +45,7 @@ export class KnitSocksComponent implements OnInit {
       this.footModel.length = this.footModel.length / this.converter.factor;
 
       // update calculation
-      this.instructions = KnitSocksComponent.calculate(this.gaugeModel, this.footModel);
+      this.instructions = calculateSock(this.footModel, this.gaugeModel);
     });
   }
 
@@ -55,14 +56,9 @@ export class KnitSocksComponent implements OnInit {
       this.gaugeModel.horizontalDistance = defaultDistanceInInches;
       this.gaugeModel.verticalDistance = defaultDistanceInInches;
     }
-    this.instructions = KnitSocksComponent.calculate(this.gaugeModel, this.footModel);
-  }
-
-  static calculate(gauge: GaugeSettings, foot: FootMeasurements): any {
-    return {}
   }
 
   onSubmit(): void{
-    this.instructions = KnitSocksComponent.calculate(this.gaugeModel, this.footModel);
+    this.instructions = calculateSock(this.footModel, this.gaugeModel);
   }
 }

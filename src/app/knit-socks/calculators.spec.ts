@@ -1,39 +1,58 @@
-import { footStitches, toeNumbers, footRows } from './calculators';
+import { getStitchesInRound, getToe, getRows, getHeel, calculateSock } from './calculators';
 import { defaultDistanceInCM } from './constants';
-import { FootMeasurements, GaugeSettings, ToeNumbers } from './types';
+import { FootMeasurements, GaugeSettings, Toe, Heel, SockInstructions, Foot } from './types';
 
 const gauge = new GaugeSettings(defaultDistanceInCM, defaultDistanceInCM, 30, 42, "2.25mm DPN", "Random Superwash Sock");
 const foot = new FootMeasurements(23, 6, 22, 24);
 
-describe('footStitches', ()=>{
+describe('getStitchesInRound', ()=>{
   it('size EU38', ()=>{
-    expect(footStitches(foot.forefootCircumference, gauge)).toBe(60);
+    expect(getStitchesInRound(foot.forefootCircumference, gauge)).toBe(60);
   });
 });
 
-describe('toeNumbers', ()=>{
+describe('getToe', ()=>{
   interface TestCase{
     footStitches: number,
-    expectedToeNumbers: ToeNumbers,
+    expectedToe: Toe,
   }
   const testCases: TestCase[]=[
     {
       footStitches: 64,
-      expectedToeNumbers: new ToeNumbers(32, 16),
+      expectedToe: new Toe(32, 16),
     }, {
       footStitches: 68,
-      expectedToeNumbers: new ToeNumbers(36, 16),
+      expectedToe: new Toe(36, 16),
     },
   ];
   testCases.forEach((tc, i)=>{
     it(i.toString(), ()=>{
-      expect(toeNumbers(tc.footStitches)).toEqual(tc.expectedToeNumbers);
+      expect(getToe(tc.footStitches)).toEqual(tc.expectedToe);
     });
   });
 });
 
-describe('footRows', ()=>{
+describe('getRows', ()=>{
   it('size 38', ()=>{
-    expect(footRows(foot.length, gauge)).toBe(101);
+    expect(getRows(foot.length, gauge)).toBe(101);
+  });
+});
+
+describe('getHeel', ()=>{
+  it('size 38', ()=>{
+    const expectedHeel = new Heel(20, 4, 16, 30, 80, 34);
+    expect(getHeel(60, foot, gauge)).toEqual(expectedHeel);
+  });
+});
+
+describe('calculateSock', ()=>{
+  it('size 38', ()=>{
+    const expectedSockInstructions = new SockInstructions(
+      new Toe(32, 14),
+      new Foot(37, 60),
+      64,
+      new Heel(20, 4, 16, 30, 80, 34),
+    )
+    expect(calculateSock(foot, gauge)).toEqual(expectedSockInstructions);
   });
 });
