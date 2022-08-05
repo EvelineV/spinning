@@ -40,7 +40,7 @@ describe('getRows', ()=>{
 
 describe('getHeel', ()=>{
   it('size 38', ()=>{
-    const expectedHeel = new Heel(20, 4, 16, 30, 80, 34);
+    const expectedHeel = new Heel(20, 4, 16, 30, 80, 20);
     expect(getHeel(60, foot, gauge)).toEqual(expectedHeel);
   });
 });
@@ -49,9 +49,9 @@ describe('calculateSock', ()=>{
   it('size 38', ()=>{
     const expectedSockInstructions = new SockInstructions(
       new Toe(32, 14),
-      new Foot(37, 60),
+      new Foot(51, 60),
       64,
-      new Heel(20, 4, 16, 30, 80, 34),
+      new Heel(20, 4, 16, 30, 80, 20),
     )
     expect(calculateSock(foot, gauge)).toEqual(expectedSockInstructions);
   });

@@ -27,7 +27,7 @@ export function getHeel(roundFootStitches: number, foot: FootMeasurements, gauge
   const flapRows = RoundUpToMultipleOf(getRows(foot.instepHeight+1, gauge), 2, false);
 
   const gussetStitchesAtWidest = startTurnStitches + 2 * flapRows;
-  const gussetRows = gussetStitchesAtWidest - roundFootStitches/2 - bottomRows;
+  const gussetRows = gussetStitchesAtWidest - roundFootStitches;
 
   return new Heel(
     startTurnStitches,
