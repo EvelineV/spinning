@@ -58,7 +58,11 @@ export class KnitSocksComponent implements OnInit {
     }
   }
 
-  onSubmit(): void{
+  onSubmit(): void {
     this.instructions = calculateSock(this.footModel, this.gaugeModel);
+  }
+
+  resetSubmitted(): void {
+    this.instructions = undefined;
   }
 }

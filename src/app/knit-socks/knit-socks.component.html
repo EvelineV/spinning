@@ -4,47 +4,47 @@
     <div class="form-group">
         <label for="horizontal_stitches">Stitches (horizontal) in {{ gaugeModel.horizontalDistance }} {{ this.converter.name }}</label>
         <input type="number" class="form-control" id="horizontal_stitches" min=0 max=100 value=17 required
-            [(ngModel)]="gaugeModel.horizontalStitches" name="horizontal_stitches">
+            [(ngModel)]="gaugeModel.horizontalStitches" (change)="resetSubmitted()" name="horizontal_stitches">
     </div>
 
     <div class="form-group">
       <label for="vertical_stitches">Rows in {{ gaugeModel.verticalDistance }} {{ this.converter.name }}</label>
       <input type="number" class="form-control" id="vertical_stitches" min=0 max=100 value=17 required
-          [(ngModel)]="gaugeModel.verticalStitches" name="vertical_stitches">
+          [(ngModel)]="gaugeModel.verticalStitches" (change)="resetSubmitted()" name="vertical_stitches">
     </div>
 
     <div class="form-group">
       <label for="needle">Needle size</label>
-      <input type="text" class="form-control" id="needle" name="needle" [(ngModel)]="gaugeModel.needle">
+      <input type="text" class="form-control" id="needle" name="needle" [(ngModel)]="gaugeModel.needle" (change)="resetSubmitted()">
     </div>
 
     <div class="form-group">
       <label for="yarn">Yarn</label>
-      <input type="text" class="form-control" id="yarn" name="yarn" [(ngModel)]="gaugeModel.yarn">
+      <input type="text" class="form-control" id="yarn" name="yarn" [(ngModel)]="gaugeModel.yarn" (change)="resetSubmitted()">
     </div>
 
     <div class="form-group">
       <label for="leg_circumference">Leg circumference (just above ankle) in {{ this.converter.name }}</label>
       <input type="number" class="form-control" id="leg_circumference" name="leg_circumference" min=10 max=60 required
-        [(ngModel)]="footModel.legCircumference">
+        [(ngModel)]="footModel.legCircumference" (change)="resetSubmitted()">
     </div>
 
     <div class="form-group">
       <label for="instep_height">Instep Height in {{ this.converter.name}}</label>
       <input type="number" class="form-control" id="instep_height" name="instep_height" min=1 max=10 required
-        [(ngModel)]="footModel.instepHeight">
+        [(ngModel)]="footModel.instepHeight" (change)="resetSubmitted()">
     </div>
 
     <div class="form-group">
       <label for="forefoot_circumference">Forefoot circumference (just behind toes) in {{ this.converter.name }}</label>
       <input type="number" class="form-control" id="forefoot_circumference" name="forefoot_circumference" min=10 max=60 required
-        [(ngModel)]="footModel.forefootCircumference">
+        [(ngModel)]="footModel.forefootCircumference" (change)="resetSubmitted()">
     </div>
 
     <div class="form-group">
       <label for="length">Length of feet (back of heel to front of longest toe) in {{ this.converter.name }}</label>
       <input type="number" class="form-control" id="length" name="length" min=10 max=60 required
-        [(ngModel)]="footModel.length">
+        [(ngModel)]="footModel.length" (change)="resetSubmitted()">
     </div>
 
     <button type="submit">Calculate!</button>
