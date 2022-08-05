@@ -1,29 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitConverterService } from '../unit-converter.service';
-
-export class FootMeasurements {
-  constructor(
-    public legCircumference: number,
-    public instepHeight: number,
-    public forefootCircumference: number,
-    public length: number,
-  ){}
-}
-
-export class GaugeSettings {
-  constructor(
-    public horizontalDistance: number,
-    public verticalDistance: number,
-    public horizontalStitches: number,
-    public verticalStitches: number,
-    public needle: string,
-    public yarn: string,
-  ){}
-}
-
-const defaultDistanceInCM = 10;
-const defaultDistanceInInches = 4;
-const negativeEase = 10; // percent, only in width
+import { FootMeasurements, GaugeSettings } from './types';
+import { defaultDistanceInCM, defaultDistanceInInches } from './constants';
 
 @Component({
   selector: 'app-knit-socks',
