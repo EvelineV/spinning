@@ -30,8 +30,7 @@ export class SpinToCrimpComponent implements OnInit {
 
   converter: any;
   model = new WheelSettings(5, 17, 17, 50, 30, 2, "ross"); // this assumes we're metric
-  submitted = false;
-  results = new Results(0, 0, 0);
+  results?: Results;
 
   constructor(
     public unitConverterService: UnitConverterService,
@@ -86,5 +85,9 @@ export class SpinToCrimpComponent implements OnInit {
 
   onSubmit(): void {
     this.results = SpinToCrimpComponent.calculate(this.model, this.converter.name);
+  }
+
+  resetSubmitted(): void {
+    this.results = undefined;
   }
 }

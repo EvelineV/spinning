@@ -1,13 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
-export function calculate(singles_wpi: number, num_plies: number): number {
-  const numPlyFactor: Record<number, number> = {
-    2: 3/2,
-    3: 2.0,
-    4: 2.2,  // missing in literature: ran a least-squares fit through the other three data points
-    5: 5/2,
+export class Ply {
+  public singles_wpi: number;
+  public num_plies: number;
+
+  constructor(payload: Partial<Ply>) {
+    this.singles_wpi = payload.singles_wpi || 0;
+    this.num_plies = payload.num_plies || 0;
   }
-  return singles_wpi / numPlyFactor[num_plies];
+
+  calculate(): number {
+    const numPlyFactor: Record<number, number> = {
+      2: 3/2,
+      3: 2.0,
+      4: 2.2,  // missing in literature: ran a least-squares fit through the other three data points
+      5: 5/2,
+    }
+    return this.singles_wpi / numPlyFactor[this.num_plies];
+  }
 }
 
 @Component({
@@ -16,23 +26,18 @@ export function calculate(singles_wpi: number, num_plies: number): number {
   styleUrls: ['./plied-wpi.component.css']
 })
 export class PliedWpiComponent implements OnInit {
-
-  singles_wpi: number = 14;
-  num_ply: number = 3;
-  plied_wpi: number = 0;
+  plied_wpi = 0;
+  model = new Ply({ singles_wpi: 14, num_plies: 3, });
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.plied_wpi = calculate(this.singles_wpi, this.num_ply);
+  ngOnInit(): void {}
+
+  resetSubmitted(): void {
+    this.plied_wpi = 0;
   }
 
-  onSinglesWPIChange(event: any) {
-    this.singles_wpi = event.target.value as number;
-    this.plied_wpi = calculate(this.singles_wpi, this.num_ply);
-  }
-  onNumPlyChange(event: any) {
-    this.num_ply = event.target.value as number;
-    this.plied_wpi = calculate(this.singles_wpi, this.num_ply);
+  onSubmit(): void {
+    this.plied_wpi = this.model.calculate();
   }
 }

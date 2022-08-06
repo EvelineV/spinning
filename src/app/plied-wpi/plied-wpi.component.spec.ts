@@ -1,7 +1,7 @@
 import { isNgContainer } from '@angular/compiler';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PliedWpiComponent, calculate } from './plied-wpi.component';
+import { PliedWpiComponent, Ply } from './plied-wpi.component';
 
 describe('PliedWpiComponent', () => {
   let component: PliedWpiComponent;
@@ -23,16 +23,36 @@ describe('PliedWpiComponent', () => {
   });
 });
 
-describe('plied-wpi:calculate', ()=>{
-  it('calculates for two-ply', () => {
-    expect(calculate(15, 2)).toEqual(10);
+describe('ply:calculate', ()=>{
+  interface TestCase {
+    name: string,
+    singlesWPI: number,
+    numPlies: number,
+    expectedPliedWPI: number,
+  }
+  const testcases: TestCase[] = [
+    {
+      name: 'two-ply',
+      singlesWPI: 15,
+      numPlies: 2,
+      expectedPliedWPI: 10,
+    }, {
+      name: 'three-ply',
+      singlesWPI: 14,
+      numPlies: 3,
+      expectedPliedWPI: 7,
+    }, {
+      name: 'five-ply',
+      singlesWPI: 18,
+      numPlies: 5,
+      expectedPliedWPI: 7.2,
+    }
+  ];
+
+  testcases.forEach((tc)=>{
+    it(tc.name, ()=>{
+      expect(new Ply({ singles_wpi: tc.singlesWPI, num_plies: tc.numPlies}).calculate()).toEqual(tc.expectedPliedWPI);
+    });
   });
 
-  it('calculates for three-ply', ()=>{
-    expect(calculate(14, 3)).toEqual(7);
-  });
-
-  it('calculates five-ply', ()=>{
-    expect(calculate(18, 5)).toEqual(7.2);
-  });
 });

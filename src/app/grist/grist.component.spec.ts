@@ -24,6 +24,10 @@ describe('GristComponent', () => {
   });
 
   it('calculates initial values in metric', () => {
+    expect(component.grist).toBe(0);
+    component.model.length = 200;
+    component.model.weight = 100;
+    component.calculate();
     expect(component.grist).toEqual(2000);
     expect(component.unitConverterService.getConverters()['long_length'].name).toBe('meter');
   });
@@ -35,8 +39,8 @@ describe('GristComponent', () => {
     const ounces = 100 / component.converters['small_weight'].factor;
     expect(yards).toBe(218.72265966754156);
     expect(ounces).toBe(3.527399072294044);
-    component.length = yards;
-    component.weight = ounces;
+    component.model.length = yards;
+    component.model.weight = ounces;
 
     component.calculate();
     expect(component.grist).toBeCloseTo(992.1084864391951);
