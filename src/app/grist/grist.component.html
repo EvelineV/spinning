@@ -3,14 +3,14 @@
     <form (ngSubmit)="calculate()">
         <div class="form-group">
             <label for="length_input">Length ({{ this.converters.long_length.name }})</label>
-            <input type="number" name="length_input" required min=1 max=100000 #length_input value={{this.length}}
-                (change)=" onLengthChange($event)">
+            <input type="number" class="form-control" name="length_input" required min=1 max=100000 #length_input value={{this.model.length}}
+              [(ngModel)]="model.length" (change)="resetSubmitted()">
         </div>
 
         <div class="form-group">
             <label for="weight_input">Weight ({{ this.converters.small_weight.name }})</label>
-            <input type="number" name="weight_input" required min=1 max=100000 #weight_input value={{this.weight}}
-                (change)="onWeightChange($event)">
+            <input type="number" class="form-control" name="weight_input" required min=1 max=100000 #weight_input value={{this.model.weight}}
+              [(ngModel)]="model.weight" (change)="resetSubmitted()">
         </div>
 
         <button type="submit">Calculate!</button>

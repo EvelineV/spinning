@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitConverterService } from '../unit-converter.service';
 
+class Grist {
+  public length: number;
+  public weight: number;
+
+  constructor(payload: Partial<Grist>) {
+    this.length = payload.length || 0;
+    this.weight = payload.weight || 0;
+  }
+}
+
 @Component({
   selector: 'app-grist',
   templateUrl: './grist.component.html',
@@ -9,8 +19,7 @@ import { UnitConverterService } from '../unit-converter.service';
 export class GristComponent implements OnInit {
 
   converters: any;
-  length = 200;
-  weight = 100;
+  model = new Grist({length: 200, weight: 100});
   grist = 0;
 
   constructor(
@@ -18,15 +27,15 @@ export class GristComponent implements OnInit {
   ) {
     this.unitConverterService.selectedChange.subscribe((_value) => {
       // reset converters
-      this.length = this.length * this.converters.long_length.factor;
-      this.weight = this.weight * this.converters.small_weight.factor;
+      this.model.length = this.model.length * this.converters.long_length.factor;
+      this.model.weight = this.model.weight * this.converters.small_weight.factor;
 
       // update converters
       this.converters = unitConverterService.getConverters();
 
       // set length and weight according to new converters
-      this.length = this.length / this.converters.long_length.factor;
-      this.weight = this.weight / this.converters.small_weight.factor;
+      this.model.length = this.model.length / this.converters.long_length.factor;
+      this.model.weight = this.model.weight / this.converters.small_weight.factor;
 
       // at last, update calculation
       this.calculate()
@@ -36,23 +45,17 @@ export class GristComponent implements OnInit {
   ngOnInit(): void {
     this.converters = this.unitConverterService.getConverters();
     if (this.converters.small_weight.name === 'ounces') {
-      this.weight = 3;
+      this.model.weight = 3;
     }
   }
 
   calculate(): void {
-    const normalized_length = this.length;
-    const normalized_weight = this.weight * this.converters.small_weight.factor;
+    const normalized_length = this.model.length;
+    const normalized_weight = this.model.weight * this.converters.small_weight.factor;
     this.grist = (normalized_length / normalized_weight) * this.converters.large_weight.factor;
   }
 
-  onLengthChange(event: any) {
-    this.length = event.target.value as number;
-    this.grist = 0;
-  }
-
-  onWeightChange(event: any) {
-    this.weight = event.target.value as number;
+  resetSubmitted(): void {
     this.grist = 0;
   }
 
