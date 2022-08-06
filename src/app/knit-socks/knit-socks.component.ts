@@ -12,9 +12,8 @@ import { calculateSock } from './calculators';
 export class KnitSocksComponent implements OnInit {
 
   converter: any;
-  footModel = new FootMeasurements(23, 6, 22, 24);
-  gaugeModel = new GaugeSettings(defaultDistanceInCM, defaultDistanceInCM, 30, 42, "2.25mm DPN", "Random Superwash Sock");
-  submitted = false;
+  footModel = new FootMeasurements({ legCircumference: 23, instepHeight: 6, forefootCircumference: 22, length: 24 });
+  gaugeModel = new GaugeSettings({horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 30, verticalStitches: 42, needle: "2.25mm DPN", yarn: "Random Superwash Sock"});
   instructions?: SockInstructions;
 
   constructor(

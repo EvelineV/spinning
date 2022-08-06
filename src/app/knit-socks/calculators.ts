@@ -11,7 +11,7 @@ export function getStitchesInRound(circumference: number, gauge: GaugeSettings):
 export function getToe(footStitches: number): Toe {
   const castOnStitches = RoundUpToMultipleOf(footStitches / 2, 4, false);
   const toeRows = 0.5 * (footStitches-castOnStitches);
-  return new Toe(castOnStitches, toeRows);
+  return new Toe({ castOnStitches: castOnStitches, rows: toeRows});
 }
 
 export function getRows(length: number, gauge: GaugeSettings): number {
@@ -29,14 +29,14 @@ export function getHeel(roundFootStitches: number, foot: FootMeasurements, gauge
   const gussetStitchesAtWidest = startTurnStitches + 2 * flapRows;
   const gussetRows = gussetStitchesAtWidest - roundFootStitches;
 
-  return new Heel(
+  return new Heel({
     startTurnStitches,
     endTurnStitches,
     bottomRows,
     flapRows,
     gussetStitchesAtWidest,
     gussetRows,
-  );
+  });
 }
 
 export function calculateSock(foot: FootMeasurements, gauge: GaugeSettings): SockInstructions {
@@ -45,13 +45,13 @@ export function calculateSock(foot: FootMeasurements, gauge: GaugeSettings): Soc
   const totalRows = getRows(foot.length, gauge);
   const heel = getHeel(roundFootStitches, foot, gauge);
   const footRows = totalRows - toe.rows - heel.gussetRows - heel.bottomRows;
-  const straightFoot = new Foot(footRows, roundFootStitches);
+  const straightFoot = new Foot({ rows: footRows, stitchesInRound: roundFootStitches });
   const roundLegStitches = getStitchesInRound(foot.legCircumference, gauge);
 
-  return new SockInstructions(
-    toe,
-    straightFoot,
-    roundLegStitches,
-    heel,
-  );
+  return new SockInstructions({
+    toe: toe,
+    foot: straightFoot,
+    roundLegStitches: roundLegStitches,
+    heel: heel,
+  });
 }
