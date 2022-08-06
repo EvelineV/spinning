@@ -24,6 +24,7 @@ ng run spinning:deploy
 - sock knitting app: add diagram where to measure foot
 - CSS grid, flexbox, autoprefixer
 - Refactor navigation, create categories
+- Print button which cleans up layout
 
 ## Done
 

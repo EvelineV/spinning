@@ -4,6 +4,7 @@ import { FootMeasurements, GaugeSettings, Toe, Heel, SockInstructions, Foot } fr
 
 const gaugeRandom = new GaugeSettings({horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 30, verticalStitches: 42, needle: "2.25mm DPN", yarn: "Random Superwash Sock"});
 const gaugeSixPly = new GaugeSettings({horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 28, verticalStitches: 45, needle: "2.75mm DPN", yarn: "Lana Grossa Meilenweit 6-ply"});
+const gaugeBlueMarled = new GaugeSettings({horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 32, verticalStitches: 53, needle: "2.25mm DPN", yarn: "Bergen blue-grey-white Marled"});
 
 const footE = new FootMeasurements({ legCircumference: 23, instepHeight: 6, forefootCircumference: 22, length: 24});
 const footA = new FootMeasurements({ legCircumference: 24, instepHeight: 5.5, forefootCircumference: 24.5, length: 25}); // unsure length
@@ -59,6 +60,23 @@ describe('calculateSock', ()=>{
       heel: new Heel({startTurnStitches: 20, endTurnStitches: 4, bottomRows: 16, flapRows: 30, gussetStitchesAtWidest: 80, gussetRows: 20}),
     });
     expect(calculateSock(footE, gaugeRandom)).toEqual(expectedSockInstructions);
+  });
+
+  it('size 39', ()=>{
+    const expectedSockInstructions = new SockInstructions({
+      toe: new Toe({castOnStitches: 36, rows: 18}),
+      foot: new Foot({rows: 71, stitchesInRound: 72}),
+      roundLegStitches: 72,
+      heel: new Heel({
+        startTurnStitches: 24,
+        endTurnStitches: 4,
+        bottomRows: 20,
+        flapRows: 36,
+        gussetStitchesAtWidest: 96,
+        gussetRows: 24,
+      }),
+    });
+    expect(calculateSock(footA, gaugeBlueMarled)).toEqual(expectedSockInstructions);
   });
 
   it('size 43', ()=>{
