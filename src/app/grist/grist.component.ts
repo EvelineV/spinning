@@ -38,7 +38,6 @@ export class GristComponent implements OnInit {
     if (this.converters.small_weight.name === 'ounces') {
       this.weight = 3;
     }
-    this.calculate();
   }
 
   calculate(): void {
@@ -49,11 +48,12 @@ export class GristComponent implements OnInit {
 
   onLengthChange(event: any) {
     this.length = event.target.value as number;
-    this.calculate();
+    this.grist = 0;
   }
 
   onWeightChange(event: any) {
     this.weight = event.target.value as number;
-    this.calculate();
+    this.grist = 0;
   }
+
 }

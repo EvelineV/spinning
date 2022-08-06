@@ -19,7 +19,6 @@ ng run spinning:deploy
 - Add Sock knitting app (convert from React) and add tests, both units
 - Add Mitten Knitting app
 - Add Home app with welcome text and inspiration
-- Immediate calculation without calculate button
 - Angular form validation on the other forms (not only spin-to-the-crimp)
 - more tests to each calculate function
 - Deploy through github actions on merge to main branch

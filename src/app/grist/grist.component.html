@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Grist</h2>
-    <form>
+    <form (ngSubmit)="calculate()">
         <div class="form-group">
             <label for="length_input">Length ({{ this.converters.long_length.name }})</label>
             <input type="number" name="length_input" required min=1 max=100000 #length_input value={{this.length}}
@@ -12,7 +12,10 @@
             <input type="number" name="weight_input" required min=1 max=100000 #weight_input value={{this.weight}}
                 (change)="onWeightChange($event)">
         </div>
-    </form>
+
+        <button type="submit">Calculate!</button>
+
+      </form>
 
     <p *ngIf="this.grist">
         You have {{ this.grist.toFixed(2) }} {{ this.converters.long_length.name }} per {{

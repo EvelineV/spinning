@@ -23,16 +23,18 @@ export class PliedWpiComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.plied_wpi = calculate(this.singles_wpi, this.num_ply);
-  }
+  ngOnInit(): void {}
 
   onSinglesWPIChange(event: any) {
     this.singles_wpi = event.target.value as number;
-    this.plied_wpi = calculate(this.singles_wpi, this.num_ply);
+    this.plied_wpi = 0;
   }
   onNumPlyChange(event: any) {
     this.num_ply = event.target.value as number;
+    this.plied_wpi = 0;
+  }
+
+  onSubmit(): void {
     this.plied_wpi = calculate(this.singles_wpi, this.num_ply);
   }
 }

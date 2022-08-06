@@ -8,36 +8,36 @@
                 </span>
             </label>
             <input type="number" class="form-control" id="cpi" min=0 max=100 value=5 required [(ngModel)]="model.cpi"
-                name="cpi">
+                name="cpi" (change)="resetSubmitted()">
         </div>
 
         <div class="form-group">
             <label for="singles_ratio">Wheel ratio for singles</label>
             <input type="number" class="form-control" id="singles_ratio" min=0 max=100 value=17 required
-                [(ngModel)]="model.singles_ratio" name="singles_ratio">
+                [(ngModel)]="model.singles_ratio" name="singles_ratio" (change)="resetSubmitted()">
         </div>
 
         <div class="form-group">
             <label for="ply_ratio">Wheel ratio for plying</label>
             <input type="number" class="form-control" id="ply_ratio" min=0 max=100 value=17 required
-                [(ngModel)]="model.ply_ratio" name="ply_ratio">
+                [(ngModel)]="model.ply_ratio" name="ply_ratio" (change)="resetSubmitted()">
         </div>
 
         <div class="form-group">
             <label for="draft_distance">Drafting distance ({{ this.converter.name }}) for singles</label>
             <input type="number" class="form-control" id="draft_distance" min=0 max=100 value=17 required
-                [(ngModel)]="model.draft_distance" name="draft_distance">
+                [(ngModel)]="model.draft_distance" name="draft_distance" (change)="resetSubmitted()">
         </div>
 
         <div class="form-group">
             <label for="ply_distance">Plying distance ({{ this.converter.name }})</label>
             <input type="number" class="form-control" id="ply_distance" min=0 max=100 value=12 required
-                [(ngModel)]="model.ply_distance" name="ply_distance">
+                [(ngModel)]="model.ply_distance" name="ply_distance" (change)="resetSubmitted()">
         </div>
 
         <div class="form-group">
             <label for="num_ply">Number of plies</label><br>
-            <select id="num_ply" type="number" [(ngModel)]="model.num_ply" name="num_ply" required>
+            <select id="num_ply" type="number" [(ngModel)]="model.num_ply" name="num_ply" required (change)="resetSubmitted()">
                 <option value=2 selected="selected">2</option>
                 <option value=3>3</option>
             </select>
@@ -45,7 +45,7 @@
 
         <div class="form-group">
             <label for="system_ply">Plying system</label><br>
-            <select id="system_ply" type="string" [(ngModel)]="model.system_ply" name="system_ply" required>
+            <select id="system_ply" type="string" [(ngModel)]="model.system_ply" name="system_ply" required (change)="resetSubmitted()">
                 <option value="ross" selected="selected">Mabel Ross (balanced weaving yarn)</option>
                 <option value="field">Anne Field (soft knitting yarn)</option>
             </select>
@@ -54,7 +54,7 @@
 
     </form>
 
-    <p id="results" *ngIf="results.bpi">
+    <p id="results" *ngIf="results">
         You need <span id="treadles_singles">{{ results.treadles_singles.toFixed(1) }}</span> treadles per drafting
         distance
         in the singles.

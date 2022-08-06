@@ -24,6 +24,10 @@ describe('GristComponent', () => {
   });
 
   it('calculates initial values in metric', () => {
+    expect(component.grist).toBe(0);
+    component.length = 200;
+    component.weight = 100;
+    component.calculate();
     expect(component.grist).toEqual(2000);
     expect(component.unitConverterService.getConverters()['long_length'].name).toBe('meter');
   });

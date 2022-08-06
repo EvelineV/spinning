@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Plied WPI</h2>
   <p>Estimate the weight of your plied yarn based on its singles weight. Note this does not apply to cable-plied yarn and other fancy structures, only to traditional plying!</p>
-  <form>
+  <form (ngSubmit)="onSubmit()">
       <div class="form-group">
           <label for="singles_wpi">Singles WPI</label>
           <input type="number" name="singles_wpi" required min=2 max=100 value={{this.singles_wpi}}
@@ -12,6 +12,7 @@
         <input type="number" name="num_ply" required min=2 max=5 step=1 value={{this.num_ply}}
           (change)="onNumPlyChange($event)">
     </div>
+    <button type="submit">Calculate!</button>
   </form>
 
   <p *ngIf="plied_wpi">
