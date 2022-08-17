@@ -23,7 +23,6 @@ export class Ply {
 @Component({
   selector: 'app-plied-wpi',
   templateUrl: './plied-wpi.component.html',
-  styleUrls: ['./plied-wpi.component.css']
 })
 export class PliedWpiComponent implements OnInit {
   plied_wpi = 0;
