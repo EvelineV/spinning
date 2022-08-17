@@ -19,6 +19,7 @@ export class GaugeSettings {
   public verticalStitches: number;
   public needle: string;
   public yarn: string;
+  public ease: number; // percent
 
   constructor(payload: Partial<GaugeSettings>){
     this.horizontalDistance = payload.horizontalDistance || 0;
@@ -27,6 +28,7 @@ export class GaugeSettings {
     this.verticalStitches = payload.verticalStitches || 0;
     this.needle = payload.needle || '';
     this.yarn = payload.yarn || '';
+    this.ease = payload.ease || -5;
   }
 }
 

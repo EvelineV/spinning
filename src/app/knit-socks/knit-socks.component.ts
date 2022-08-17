@@ -13,7 +13,7 @@ export class KnitSocksComponent implements OnInit {
 
   converter: any;
   footModel = new FootMeasurements({ legCircumference: 23, instepHeight: 6, forefootCircumference: 22, length: 24 });
-  gaugeModel = new GaugeSettings({horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 30, verticalStitches: 42, needle: "2.25mm DPN", yarn: "Random Superwash Sock"});
+  gaugeModel = new GaugeSettings({horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 30, verticalStitches: 42, ease: -5, needle: "2.25mm DPN", yarn: "Random Superwash Sock"});
   instructions?: SockInstructions;
 
   constructor(

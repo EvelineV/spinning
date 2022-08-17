@@ -1,10 +1,9 @@
 import { RoundUpToMultipleOf } from "../roundUpToMultiple.utils";
 import { Foot, FootMeasurements, GaugeSettings, Heel, SockInstructions, Toe } from "./types";
-import { negativeEase } from "./constants";
 
 export function getStitchesInRound(circumference: number, gauge: GaugeSettings): number {
   const stitchesPerUnit = gauge.horizontalStitches / gauge.horizontalDistance;
-  const stitchesPerRound = stitchesPerUnit * circumference * (1 - negativeEase / 100);
+  const stitchesPerRound = stitchesPerUnit * circumference * (1 + gauge.ease / 100);
   return RoundUpToMultipleOf(stitchesPerRound, 4, true);
 }
 
