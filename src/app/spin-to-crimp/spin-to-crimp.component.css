@@ -7,14 +7,3 @@ input {
   width: 70px;
   font-size: 18px;
 }
-
-.tooltiptext {
-  visibility: hidden;
-  position: absolute;
-  z-index: 1;
-}
-
-.explanation:hover .tooltiptext {
-  visibility: visible;
-  font-weight: lighter;
-}

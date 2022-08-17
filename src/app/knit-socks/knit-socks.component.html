@@ -14,7 +14,12 @@
     </div>
 
     <div class="form-group">
-      <label for="ease">Ease (percent)</label>
+      <label for="ease">Ease
+        <app-tooltip
+          label="(percent)"
+          text="(amount of stretch, socks should have a little negative ease)"
+        ></app-tooltip>
+      </label>
       <input type="number" class="form-control" id="ease" min=-20 max=20 value=-5 required
           [(ngModel)]="gaugeModel.ease" (change)="resetSubmitted()" name="ease">
     </div>

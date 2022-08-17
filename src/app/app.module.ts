@@ -9,6 +9,7 @@ import { KnitSocksComponent } from './knit-socks/knit-socks.component';
 import { GristComponent } from './grist/grist.component';
 import { UnitSelectorComponent } from './unit-selector/unit-selector.component';
 import { PliedWpiComponent } from './plied-wpi/plied-wpi.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PliedWpiComponent } from './plied-wpi/plied-wpi.component';
     GristComponent,
     UnitSelectorComponent,
     PliedWpiComponent,
+    TooltipComponent,
   ],
   imports: [
     BrowserModule,
