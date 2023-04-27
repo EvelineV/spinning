@@ -7,7 +7,7 @@ import { GristComponent } from './grist/grist.component';
 
 const routes: Routes = [
   { path: "spin-to-crimp", component: SpinToCrimpComponent },
-  { path: "knit-socks", component: KnitSocksComponent },
+  { path: "knitting/socks", component: KnitSocksComponent },
   { path: "grist", component: GristComponent },
   { path: "plied-wpi", component: PliedWpiComponent },
 ];

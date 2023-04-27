@@ -10,13 +10,9 @@ ng run spinning:deploy
 
 ## To Do:
 
-- ~Add service to keep track of metric vs imperial units~
-- ~Convert grist calculator to use both units~
-- ~Convert spin-to-crimp calculator to use both units~
-- ~Add design/layout~
-- ~Add formula to go from singles WPI to plied WPI~
-- ~Deploy Angular version to GitHub pages~
-- Add Sock knitting app (convert from React) and add tests, both units
+- Add Sock knitting app (convert from React) and add tests
+- Restrict knitting apps to metric units
+- Extract gauge component
 - Add Mitten Knitting app
 - Add Home app with welcome text and inspiration
 - Angular form validation on the other forms (not only spin-to-the-crimp)
@@ -27,3 +23,13 @@ ng run spinning:deploy
 - sock knitting app: include a short row heel
 - sock knitting app: add diagram where to measure foot
 - CSS grid, flexbox, autoprefixer
+- Refactor navigation, create categories
+
+## Done
+
+- ~Add service to keep track of metric vs imperial units~
+- ~Convert grist calculator to use both units~
+- ~Convert spin-to-crimp calculator to use both units~
+- ~Add design/layout~
+- ~Add formula to go from singles WPI to plied WPI~
+- ~Deploy Angular version to GitHub pages~
