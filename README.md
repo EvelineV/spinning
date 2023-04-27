@@ -10,6 +10,7 @@ ng run spinning:deploy
 
 ## To Do:
 
+- Convert Calculator tests to Table-driven tests
 - Restrict knitting apps to metric units (also hide converter)
 - Extract gauge component
 - Add Mitten Knitting app
