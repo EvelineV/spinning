@@ -28,6 +28,7 @@ ng run spinning:deploy
 - Refactor navigation, create categories
 - Print button which cleans up layout
 - mitten knitting app: add diagram (SVG) where to measure hand
+- Selectable presets for common values of gauge/footsize/handsize
 
 ## Done
 
