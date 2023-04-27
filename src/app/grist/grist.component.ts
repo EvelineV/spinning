@@ -14,7 +14,6 @@ class Grist {
 @Component({
   selector: 'app-grist',
   templateUrl: './grist.component.html',
-  styleUrls: ['./grist.component.css']
 })
 export class GristComponent implements OnInit {
 

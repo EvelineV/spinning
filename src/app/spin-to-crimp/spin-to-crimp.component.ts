@@ -24,7 +24,6 @@ export class Results {
 @Component({
   selector: 'app-spin-to-crimp',
   templateUrl: './spin-to-crimp.component.html',
-  styleUrls: ['./spin-to-crimp.component.css']
 })
 export class SpinToCrimpComponent implements OnInit {
 

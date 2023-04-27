@@ -1,4 +1,83 @@
 <div class="container">
-    <h2>Sock knitter</h2>
-    <p>This app is coming soon!</p>
+  <h2>Sock knitter</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="horizontal_stitches">Stitches (horizontal) in {{ gaugeModel.horizontalDistance }} cm</label>
+        <input type="number" class="form-control" id="horizontal_stitches" min=0 max=100 value=17 required
+            [(ngModel)]="gaugeModel.horizontalStitches" (change)="resetSubmitted()" name="horizontal_stitches">
+    </div>
+
+    <div class="form-group">
+      <label for="vertical_stitches">Rows in {{ gaugeModel.verticalDistance }} cm</label>
+      <input type="number" class="form-control" id="vertical_stitches" min=0 max=100 value=17 required
+          [(ngModel)]="gaugeModel.verticalStitches" (change)="resetSubmitted()" name="vertical_stitches">
+    </div>
+
+    <div class="form-group">
+      <label for="ease">Ease
+        <app-tooltip
+          label="(percent)"
+          text="(amount of stretch, socks should have a little negative ease)"
+        ></app-tooltip>
+      </label>
+      <input type="number" class="form-control" id="ease" min=-20 max=20 value=-5 required
+          [(ngModel)]="gaugeModel.ease" (change)="resetSubmitted()" name="ease">
+    </div>
+
+    <div class="form-group">
+      <label for="needle">Needle size</label>
+      <input type="text" class="form-control" id="needle" name="needle" [(ngModel)]="gaugeModel.needle" (change)="resetSubmitted()">
+    </div>
+
+    <div class="form-group">
+      <label for="yarn">Yarn</label>
+      <input type="text" class="form-control" id="yarn" name="yarn" [(ngModel)]="gaugeModel.yarn" (change)="resetSubmitted()">
+    </div>
+
+    <div class="form-group">
+      <label for="leg_circumference">Leg circumference (just above ankle) in cm</label>
+      <input type="number" class="form-control" id="leg_circumference" name="leg_circumference" min=10 max=60 required
+        [(ngModel)]="footModel.legCircumference" (change)="resetSubmitted()">
+    </div>
+
+    <div class="form-group">
+      <label for="instep_height">Instep Height in cm</label>
+      <input type="number" class="form-control" id="instep_height" name="instep_height" min=1 max=10 required
+        [(ngModel)]="footModel.instepHeight" (change)="resetSubmitted()">
+    </div>
+
+    <div class="form-group">
+      <label for="forefoot_circumference">Forefoot circumference (just behind toes) in cm</label>
+      <input type="number" class="form-control" id="forefoot_circumference" name="forefoot_circumference" min=10 max=60 required
+        [(ngModel)]="footModel.forefootCircumference" (change)="resetSubmitted()">
+    </div>
+
+    <div class="form-group">
+      <label for="length">Length of feet (back of heel to front of longest toe) in cm</label>
+      <input type="number" class="form-control" id="length" name="length" min=10 max=60 required
+        [(ngModel)]="footModel.length" (change)="resetSubmitted()">
+    </div>
+
+    <button type="submit">Calculate!</button>
+  </form>
+
+  <div *ngIf="instructions" id="sock-instructions">
+    <h2>Instructions</h2>
+    <h3>Toe</h3>
+    <p>Cast on {{ instructions.toe.castOnStitches }} stitches using <a href="http://knitty.com/ISSUEspring06/FEATmagiccaston.html">Judy's magic cast on</a>. Knit {{ instructions.toe.castOnStitches }} stitches for the first round. In the second round, (k2, M1L, knit to two stitches before end of needle, M1R, k2) * 2. Continue knitting every odd row straight, increase four stitches (as in the second round) until you have {{ instructions.foot.stitchesInRound }} stitches. This takes {{ instructions.toe.rows }} rounds.</p>
+
+    <h3>Foot</h3>
+    <p>Keep knitting with rounds of {{ instructions.foot.stitchesInRound }} stitches for {{ instructions.foot.rows }} rounds.</p>
+
+    <h3>Gusset</h3>
+    <p>Divide all stitches over two needles, the instep stitches are on one needle, the heel stitches are on the second needle. The instep needle is always knitted straight. On the heel needle, increase two stitches every odd round (k2, M1L, knit to two stitches before end, M1R, k2) until you reach {{ instructions.heel.gussetStitchesAtWidest }} stitches, which will take {{ instructions.heel.gussetRows }} rounds.</p>
+
+    <h3>Heel</h3>
+    <p>On the heel needle, knit the first {{ instructions.heel.flapRows }} stitches, then place a stitch marker. Then knit the next {{ instructions.heel.startTurnStitches }} stitches and place a second stitch marker. There should be {{ instructions.heel.flapRows }} left on the left heel needle. You will now be working <a href="https://blog.tincanknits.com/2015/05/14/german-short-rows/">German Short Rows</a>. Turn the work, create the double stitch and purl back. Knit and purl back and forth (create a double stitch on the first stitch of each row) until only the middle {{ instructions.heel.endTurnStitches }} stitches are left. You are now ready for a knit row.</p>
+    <p>Knit the four middle stitches, then knit each short row stitch and its wrap separately. Knit the last together with the first gusset stitch beyond the marker (use an SSK and remove the marker). Turn the work, purl until encountering a double stitch. Purl each stitch separate from its double, and use a p2tog to unite the last stitch and the first gusset stitch.</p>
+    <p>You should now have {{ instructions.foot.stitchesInRound / 2 }} stitches in the heel flap. On the knit rows, slip every odd stitch and knit every even stitch, use an SSK to incorporate a gusset stitch at the end of the row. On the purl rows, purl all the stitches, use a p2tog to incorporate a gusset stitch at the end of the row. When you have {{ instructions.foot.rows / 2 + 1 }} stitches left on the heel needle, knit the instep needle. At the beginning of the next heel needle, knit the last gusset stitch together with the first stitch of the heel flap.</p>
+
+    <h3>Leg</h3>
+    <p>Knit the leg of the sock with {{ instructions.roundLegStitches }} stitches in the round. When the sock is high enough, make a ribbed cuff and finish with an elastic bindoff.</p>
+  </div>
 </div>

@@ -3,9 +3,10 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="cpi">Crimps per inch
-                <span class="explanation">(CPI)
-                    <span class="tooltiptext">&nbsp;(this measurement is always in inches)</span>
-                </span>
+              <app-tooltip
+                label="(CPI)"
+                text="(this measurement is always in inches)"
+              ></app-tooltip>
             </label>
             <input type="number" class="form-control" id="cpi" min=0 max=100 value=5 required [(ngModel)]="model.cpi"
                 name="cpi" (change)="resetSubmitted()">
