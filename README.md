@@ -10,8 +10,7 @@ ng run spinning:deploy
 
 ## To Do:
 
-- Add Sock knitting app (convert from React) and add tests
-- Run tests also in Node 20
+- Convert Calculator tests to Table-driven tests
 - Restrict knitting apps to metric units (also hide converter)
 - Extract gauge component
 - Add Mitten Knitting app
@@ -38,3 +37,5 @@ ng run spinning:deploy
 - ~Add design/layout~
 - ~Add formula to go from singles WPI to plied WPI~
 - ~Deploy Angular version to GitHub pages~
+- ~Add Sock knitting app (convert from React) and add tests~
+- ~Run tests also in Node 20~
