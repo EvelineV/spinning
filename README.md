@@ -11,7 +11,8 @@ ng run spinning:deploy
 ## To Do:
 
 - Add Sock knitting app (convert from React) and add tests
-- Restrict knitting apps to metric units
+- Run tests also in Node 20
+- Restrict knitting apps to metric units (also hide converter)
 - Extract gauge component
 - Add Mitten Knitting app
 - Add Home app with welcome text and inspiration
