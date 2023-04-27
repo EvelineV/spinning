@@ -2,7 +2,7 @@
 
 Some doodles around knitting, spinning, fibre arts and other hobbies. [Live deploy](https://evelinev.github.io/spinning/)
 
-NodeJS v18.3.0 with NPM 8.11.0
+NodeJS v18.16.0 with NPM v9.5.1
 
 ```
 ng run spinning:deploy
