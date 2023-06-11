@@ -4,15 +4,10 @@ Some doodles around knitting, spinning, fibre arts and other hobbies. [Live depl
 
 NodeJS v18.16.0 with NPM v9.5.1
 
-```
-ng run spinning:deploy
-```
-
 ## To Do:
 
-- Convert Calculator tests to Table-driven tests
+- Convert Sock Calculator tests to Table-driven tests
 - Restrict knitting apps to metric units (also hide converter)
-- Extract gauge component
 - Add Mitten Knitting app
 - Add Home app with welcome text and inspiration
 - extract Gauge component from Sock app to re-use for Mitten app
@@ -28,6 +23,9 @@ ng run spinning:deploy
 - Print button which cleans up layout
 - mitten knitting app: add diagram (SVG) where to measure hand
 - Selectable presets for common values of gauge/footsize/handsize
+- Add rectangle and increase/decrease calculators
+- Add Hat knitting app
+- Add backend to save projects
 
 ## Done
 
@@ -39,3 +37,23 @@ ng run spinning:deploy
 - ~Deploy Angular version to GitHub pages~
 - ~Add Sock knitting app (convert from React) and add tests~
 - ~Run tests also in Node 20~
+- ~Extract gauge component~
+
+## Useful commands
+because sometimes I don't use Angular for months at a time...
+
+#### initial setup
+```
+npm install -g @angular/cli
+```
+
+#### day-to-day
+```
+ng serve
+npm test
+```
+
+#### Release to the world
+```
+ng run spinning:deploy
+```
