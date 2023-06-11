@@ -1,10 +1,10 @@
 import { getStitchesInRound, getToe, getRows, getHeel, calculateSock } from './calculators';
-import { defaultDistanceInCM } from './constants';
-import { FootMeasurements, GaugeSettings, Toe, Heel, SockInstructions, Foot } from './types';
+import { defaultDistanceInCM } from '../knit-gauge-component/constants';
+import { FootMeasurements, SockGaugeSettings, Toe, Heel, SockInstructions, Foot } from './types';
 
-const gaugeRandom = new GaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 30, verticalStitches: 42, needle: "2.25mm DPN", yarn: "Random Superwash Sock"});
-const gaugeSixPly = new GaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 28, verticalStitches: 45, needle: "2.75mm DPN", yarn: "Lana Grossa Meilenweit 6-ply"});
-const gaugeBlueMarled = new GaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 32, verticalStitches: 53, needle: "2.25mm DPN", yarn: "Bergen blue-grey-white Marled"});
+const gaugeRandom = new SockGaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 30, verticalStitches: 42, needle: "2.25mm DPN", yarn: "Random Superwash Sock"});
+const gaugeSixPly = new SockGaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 28, verticalStitches: 45, needle: "2.75mm DPN", yarn: "Lana Grossa Meilenweit 6-ply"});
+const gaugeBlueMarled = new SockGaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 32, verticalStitches: 53, needle: "2.25mm DPN", yarn: "Bergen blue-grey-white Marled"});
 
 const footE = new FootMeasurements({ legCircumference: 23, instepHeight: 6, forefootCircumference: 22, length: 24});
 const footA = new FootMeasurements({ legCircumference: 24, instepHeight: 5.5, forefootCircumference: 24.5, length: 25}); // unsure length
