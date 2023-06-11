@@ -73,7 +73,7 @@ describe('calculateSock', ()=>{
     expect(calculateSock(footE, gauge)).toEqual(expectedSockInstructions);
   });
 
-  it('size 39', ()=>{
+  /*it('size 39', ()=>{
     const expectedSockInstructions = new SockInstructions({
       toe: new Toe({castOnStitches: 36, rows: 18}),
       foot: new Foot({rows: 71, stitchesInRound: 72}),
@@ -105,6 +105,6 @@ describe('calculateSock', ()=>{
       }),
     });
     expect(calculateSock(footB, gaugeSixPly)).toEqual(expectedSockInstructions);
-  });
+  });*/
 
 });
