@@ -7,7 +7,6 @@ NodeJS v18.16.0 with NPM v9.5.1
 ## To Do:
 
 - Convert Sock Calculator tests to Table-driven tests
-- Restrict knitting apps to metric units (also hide converter)
 - Add Home app with welcome text and inspiration
 - Add Mitten Knitting app
 - more tests to each calculate function
@@ -35,7 +34,8 @@ NodeJS v18.16.0 with NPM v9.5.1
 - ~Deploy Angular version to GitHub pages~
 - ~Add Sock knitting app (convert from React) and add tests~
 - ~Run tests also in Node 20~
-- ~Extract Gauge component from Sock app to re-use for Mitten app~S
+- ~Extract Gauge component from Sock app to re-use for Mitten app~
+- ~Remove imperial units altogether~
 
 ## Useful commands
 because sometimes I don't use Angular for months at a time...

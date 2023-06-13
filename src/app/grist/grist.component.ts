@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UnitConverterService } from '../unit-converter.service';
 
 class Grist {
   public length: number;
@@ -17,45 +16,23 @@ class Grist {
 })
 export class GristComponent implements OnInit {
 
-  converters: any;
   model = new Grist({length: 200, weight: 100});
-  grist = 0;
+  grist_metric = 0;
+  grist_imperial = 0;
 
-  constructor(
-    public unitConverterService: UnitConverterService,
-  ) {
-    this.unitConverterService.selectedChange.subscribe((_value) => {
-      // reset converters
-      this.model.length = this.model.length * this.converters.long_length.factor;
-      this.model.weight = this.model.weight * this.converters.small_weight.factor;
-
-      // update converters
-      this.converters = unitConverterService.getConverters();
-
-      // set length and weight according to new converters
-      this.model.length = this.model.length / this.converters.long_length.factor;
-      this.model.weight = this.model.weight / this.converters.small_weight.factor;
-
-      // at last, update calculation
-      this.calculate()
-    })
-  }
-
-  ngOnInit(): void {
-    this.converters = this.unitConverterService.getConverters();
-    if (this.converters.small_weight.name === 'ounces') {
-      this.model.weight = 3;
-    }
-  }
+  ngOnInit(): void {}
 
   calculate(): void {
-    const normalized_length = this.model.length;
-    const normalized_weight = this.model.weight * this.converters.small_weight.factor;
-    this.grist = (normalized_length / normalized_weight) * this.converters.large_weight.factor;
+    
+    this.grist_metric = (this.model.length / this.model.weight) * 1000;
+    this.grist_imperial = this.grist_metric * 0.49605464902; // ???
+    // 1 m = 1.0936133 yards
+    // 1kg = 2.20462262 pounds
   }
 
   resetSubmitted(): void {
-    this.grist = 0;
+    this.grist_metric = 0;
+    this.grist_imperial = 0;
   }
 
 }

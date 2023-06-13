@@ -1,9 +1,0 @@
-<form>
-    <div class="form-group">
-        <label for="units">Measurement units</label>&nbsp;
-        <select id="units" type="string" id="unit-input" name="units" #selectedUnits required
-            (change)="onChange(selectedUnits.value)">
-            <option *ngFor="let unit of units" [ngValue]="unit">{{unit}}</option>
-        </select>
-    </div>
-</form>
