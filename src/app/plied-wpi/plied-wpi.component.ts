@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 export class Ply {
   public singles_wpi: number;
   public num_plies: number;
+  public singles_tpi?: number|undefined;
 
   constructor(payload: Partial<Ply>) {
     this.singles_wpi = payload.singles_wpi || 0;
     this.num_plies = payload.num_plies || 0;
+    this.singles_tpi = payload.singles_tpi || 0;
   }
 
-  calculate(): number {
+  calculateWPI(): number {
     const numPlyFactor: Record<number, number> = {
       2: 3/2,
       3: 2.0,
@@ -17,6 +19,13 @@ export class Ply {
       5: 5/2,
     }
     return this.singles_wpi / numPlyFactor[this.num_plies];
+  }
+
+  calculateBPI(): number {
+    if (this.singles_tpi) {
+      return this.singles_tpi * this.num_plies;
+    }
+    return 0;
   }
 }
 
@@ -26,6 +35,7 @@ export class Ply {
 })
 export class PliedWpiComponent implements OnInit {
   plied_wpi = 0;
+  plied_bpi = 0;
   model = new Ply({ singles_wpi: 14, num_plies: 3, });
 
   constructor() { }
@@ -37,6 +47,7 @@ export class PliedWpiComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.plied_wpi = this.model.calculate();
+    this.plied_wpi = this.model.calculateWPI();
+    this.plied_bpi = this.model.calculateBPI();
   }
 }
