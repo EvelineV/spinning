@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Sock knitter</h2>
+  <h2>Toe-up Stockinette Sock with Heel Flap Knitting Pattern</h2>
   <form (ngSubmit)="onSubmit()">
    <app-knit-gauge (emitter)="changeGauge($event)"></app-knit-gauge>
 
@@ -47,7 +47,7 @@
     <p>Cast on {{ instructions.toe.castOnStitches }} stitches using <a href="http://knitty.com/ISSUEspring06/FEATmagiccaston.html">Judy's magic cast on</a>. Knit {{ instructions.toe.castOnStitches }} stitches for the first round. In the second round, (k2, M1L, knit to two stitches before end of needle, M1R, k2) * 2. Continue knitting every odd row straight, increase four stitches (as in the second round) until you have {{ instructions.foot.stitchesInRound }} stitches. This takes {{ instructions.toe.rows }} rounds.</p>
 
     <h3>Foot</h3>
-    <p>Keep knitting with rounds of {{ instructions.foot.stitchesInRound }} stitches for {{ instructions.foot.rows }} rounds.</p>
+    <p>Keep knitting stockinette with rounds of {{ instructions.foot.stitchesInRound }} stitches for {{ instructions.foot.rows }} rounds.</p>
 
     <h3>Gusset</h3>
     <p>Divide all stitches over two needles, the instep stitches are on one needle, the heel stitches are on the second needle. The instep needle is always knitted straight. On the heel needle, increase two stitches every odd round (k2, M1L, knit to two stitches before end, M1R, k2) until you reach {{ instructions.heel.gussetStitchesAtWidest }} stitches, which will take {{ instructions.heel.gussetRows }} rounds.</p>
@@ -58,6 +58,6 @@
     <p>You should now have {{ instructions.foot.stitchesInRound / 2 }} stitches in the heel flap. On the knit rows, slip every odd stitch and knit every even stitch, use an SSK to incorporate a gusset stitch at the end of the row. On the purl rows, purl all the stitches, use a p2tog to incorporate a gusset stitch at the end of the row. When you have {{ instructions.foot.rows / 2 + 1 }} stitches left on the heel needle, knit the instep needle. At the beginning of the next heel needle, knit the last gusset stitch together with the first stitch of the heel flap.</p>
 
     <h3>Leg</h3>
-    <p>Knit the leg of the sock with {{ instructions.roundLegStitches }} stitches in the round. When the sock is high enough, make a ribbed cuff and finish with an elastic bindoff.</p>
+    <p>Knit the leg of the sock in stockinette with {{ instructions.roundLegStitches }} stitches in the round. When the sock is high enough, make a ribbed cuff and finish with an elastic bindoff.</p>
   </div>
 </div>
