@@ -36,7 +36,7 @@ NodeJS v20.10.0 with NPM v10.2.3
 - ~Run tests also in Node 20~
 - ~Extract Gauge component from Sock app to re-use for Mitten app~
 - ~Remove imperial units altogether~
-- ~new formula: BPI(plied) = TPI(singles) \* numPlies~
+- ~new formula: BPI(plied) = TPI(singles) \* numPlies (included in plied WPI app as optional)~
 
 ## Useful commands
 because sometimes I don't use Angular for months at a time...
