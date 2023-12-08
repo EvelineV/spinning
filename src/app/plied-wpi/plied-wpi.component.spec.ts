@@ -51,8 +51,12 @@ describe('ply:calculate', ()=>{
 
   testcases.forEach((tc)=>{
     it(tc.name, ()=>{
-      expect(new Ply({ singles_wpi: tc.singlesWPI, num_plies: tc.numPlies}).calculate()).toEqual(tc.expectedPliedWPI);
+      expect(new Ply({ singles_wpi: tc.singlesWPI, num_plies: tc.numPlies}).calculateWPI()).toEqual(tc.expectedPliedWPI);
     });
   });
 
+  it('should calculate BPI', ()=>{
+    expect(new Ply({ singles_tpi: 14, num_plies: 3, singles_wpi: 23 }).calculateBPI()).toEqual(42);
+    expect(new Ply({ singles_tpi: 0, num_plies: 3, singles_wpi: 18 }).calculateBPI()).toEqual(0);
+  });
 });

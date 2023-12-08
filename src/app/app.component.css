@@ -29,10 +29,6 @@ li a {
     text-decoration: none;
 }
 
-li:last-child {
-    float: right;
-}
-
 li a:hover {
     background-color: #DBA620;
 }

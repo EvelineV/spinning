@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UnitConverterService } from '../unit-converter.service';
 
 export class WheelSettings {
   constructor(
@@ -27,42 +26,15 @@ export class Results {
 })
 export class SpinToCrimpComponent implements OnInit {
 
-  converter: any;
-  model = new WheelSettings(5, 17, 17, 50, 30, 2, "ross"); // this assumes we're metric
+  model = new WheelSettings(5, 17, 17, 50, 30, 2, "ross");
   results?: Results;
 
-  constructor(
-    public unitConverterService: UnitConverterService,
-  ) {
-    this.unitConverterService.selectedChange.subscribe((_value) => {
-      // reset converters
-      this.model.draft_distance = this.model.draft_distance * this.converter.factor;
-      this.model.ply_distance = this.model.ply_distance * this.converter.factor;
-
-      // update converters
-      this.converter = unitConverterService.getConverters()['short_length'];
-
-      // set drafting and plying distance according to new converters
-      this.model.draft_distance = this.model.draft_distance / this.converter.factor;
-      this.model.ply_distance = this.model.ply_distance / this.converter.factor;
-
-      // at last, update calculation
-      SpinToCrimpComponent.calculate(this.model, this.converter.name);
-    })
-  }
-
   ngOnInit(): void {
-    this.converter = this.unitConverterService.getConverters()['short_length'];
-    if (this.converter.name == "inches") {
-      // if we are already on imperial when this page is loaded, set the initial values to inches
-      this.model.draft_distance = 20;
-      this.model.ply_distance = 12;
-    }
-    SpinToCrimpComponent.calculate(this.model, this.converter.name);
+    SpinToCrimpComponent.calculate(this.model);
   }
 
-  static calculate(ws: WheelSettings, c: string): Results {
-    const inches_correction = c == "inches" ? 1 : 2.54;
+  static calculate(ws: WheelSettings): Results {
+    const inches_correction = 2.54;
     const multiplier: Record<string, Record<number, number>> = {
       "field": { 2: 1 / 2, 3: 3 / 4 },
       "ross": { 2: 2 / 3, 3: 3 / 4 },
@@ -77,13 +49,11 @@ export class SpinToCrimpComponent implements OnInit {
     const num_treadles_plying = twists_plying / ws.ply_ratio;
 
     const bpi = ws.cpi * ws.num_ply;
-    const treadles_plying = num_treadles_plying;
-    const treadles_singles = num_treadles_singles;
-    return new Results(treadles_singles, treadles_plying, bpi);
+    return new Results(num_treadles_singles, num_treadles_plying, bpi);
   }
 
   onSubmit(): void {
-    this.results = SpinToCrimpComponent.calculate(this.model, this.converter.name);
+    this.results = SpinToCrimpComponent.calculate(this.model);
   }
 
   resetSubmitted(): void {
