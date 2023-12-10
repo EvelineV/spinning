@@ -1,35 +1,45 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
 /*
-  https://www.schemecolor.com/teal-and-gold.php
-  The Teal And Gold Color Scheme palette has 5 colors which are
-  Skobeloff (#006C77),
-  Teal (#008182),
-  Goldenrod (#DBA620),
-  Chinese Gold (#CC9802) and
-  Dark Goldenrod (#B7850E)
+  Goldenrod #DBA620
+  Purple background #273696, 
+  Purple text #0B165C
 */
+
+* {
+  color: black;
+}
 
 h1 {
   margin-left: 1em;
-  color: #006C77;
+  color: #273696;
   font-size: 250%;
 }
 
 h2,
 h3 {
-  color: #006C77;
-  font-weight: lighter;
+  color: #0B165C;
 }
 
 div.container {
   margin-left: 2em;
   margin-right: 2em;
-
 }
 
 a {
-  color: #006C77;
+  color: #0B165C;
+}
+
+a:visited {
+  color: #0B165C;
+}
+
+a:hover {
+  color: #273696;
+}
+
+a:active {
+  color: #0B165C;
 }
 
 input {
@@ -62,7 +72,7 @@ select {
 }
 
 button {
-  background-color: #008182;
+  background-color: #273696;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -86,7 +96,7 @@ button:disabled {
 
 .ng-valid[required],
 .ng-valid.required {
-  border-left: 5px solid #008182;
+  border-left: 5px solid #273696;
 }
 
 .ng-invalid:not(form) {
