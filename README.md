@@ -47,14 +47,15 @@ because sometimes I don't use Angular for months at a time...
 npm install -g @angular/cli @angular-eslint/schematics@17.1.1
 ```
 
-#### day-to-day
+#### day-to-day development
 ```
-ng serve
+npm ci
+ng generate component <name>
 npm test
+ng serve --open
 ```
 
 #### Release to the world
 ```
-npm run prod
 npm run deploy
 ```
