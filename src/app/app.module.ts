@@ -10,6 +10,7 @@ import { KnitGaugeComponent } from './knit-gauge-component/knit-gauge.component'
 import { GristComponent } from './grist/grist.component';
 import { PliedWpiComponent } from './plied-wpi/plied-wpi.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     GristComponent,
     PliedWpiComponent,
     TooltipComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

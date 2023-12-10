@@ -1,22 +1,45 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
-/* Application-wide Styles */
+/*
+  Goldenrod #DBA620
+  Purple background #273696, 
+  Purple text #0B165C
+*/
+
+* {
+  color: black;
+}
 
 h1 {
-  color: #006C77;
+  margin-left: 1em;
+  color: #273696;
   font-size: 250%;
 }
 
 h2,
 h3 {
-  color: #006C77;
-  font-weight: lighter;
+  color: #0B165C;
 }
 
 div.container {
   margin-left: 2em;
   margin-right: 2em;
+}
 
+a {
+  color: #0B165C;
+}
+
+a:visited {
+  color: #0B165C;
+}
+
+a:hover {
+  color: #273696;
+}
+
+a:active {
+  color: #0B165C;
 }
 
 input {
@@ -49,7 +72,7 @@ select {
 }
 
 button {
-  background-color: #008182;
+  background-color: #273696;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -73,7 +96,7 @@ button:disabled {
 
 .ng-valid[required],
 .ng-valid.required {
-  border-left: 5px solid #008182;
+  border-left: 5px solid #273696;
 }
 
 .ng-invalid:not(form) {

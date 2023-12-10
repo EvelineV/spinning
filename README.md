@@ -7,7 +7,6 @@ NodeJS v20.10.0 with NPM v10.2.3
 ## To Do:
 
 - Convert Sock Calculator tests to Table-driven tests
-- Add Home app with welcome text and inspiration
 - Add Mitten Knitting app
 - more tests to each calculate function
 - Deploy through github actions on merge to main branch
@@ -38,23 +37,28 @@ NodeJS v20.10.0 with NPM v10.2.3
 - ~Extract Gauge component from Sock app to re-use for Mitten app~
 - ~Remove imperial units altogether~
 - ~new formula: BPI(plied) = TPI(singles) \* numPlies (included in plied WPI app as optional)~
+- ~Add Home app with welcome text and inspiration~
 
 ## Useful commands
 because sometimes I don't use Angular for months at a time...
 
 #### initial setup
 ```
-npm install -g @angular/cli
+npm install -g @angular/cli @angular-eslint/schematics@17.1.1
 ```
 
-#### day-to-day
+#### day-to-day development
 ```
-ng serve
+npm ci
+ng generate component <name>
 npm test
+ng serve --open
 ```
 
 #### Release to the world
 ```
-npm run prod
 npm run deploy
 ```
+
+#### Note to self
+[Favicon](https://www.svgrepo.com/svg/51340/sheep) taken under CC0 license (no attribution required).
