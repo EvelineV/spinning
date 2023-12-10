@@ -59,3 +59,6 @@ ng serve --open
 ```
 npm run deploy
 ```
+
+#### Note to self
+[Favicon](https://www.svgrepo.com/svg/51340/sheep) taken under CC0 license (no attribution required).
