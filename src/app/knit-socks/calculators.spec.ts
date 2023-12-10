@@ -18,7 +18,7 @@ describe('getStitchesInRound', ()=>{
 });
 
 describe('getToe', ()=>{
-  interface TestCase{
+  type TestCase = {
     footStitches: number,
     expectedToe: Toe,
   }
@@ -32,7 +32,7 @@ describe('getToe', ()=>{
     },
   ];
   testCases.forEach((tc, i)=>{
-    it(i.toString(), ()=>{
+    it(`Toe ${i.toString()}`, ()=>{
       expect(getToe(tc.footStitches)).toEqual(tc.expectedToe);
     });
   });
