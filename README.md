@@ -6,7 +6,6 @@ NodeJS v20.10.0 with NPM v10.2.3
 
 ## To Do:
 
-- Convert Sock Calculator tests to Table-driven tests
 - Add Mitten Knitting app
 - more tests to each calculate function
 - Deploy through github actions on merge to main branch
@@ -22,7 +21,9 @@ NodeJS v20.10.0 with NPM v10.2.3
 - Add Hat knitting app
 - Add backend to save projects
 - upgrade to Angular 17
+- upgrade to Node 22
 - update design with more modern shapes and colors
+- add Tablet Weaving Designer app
 
 ## Done
 
@@ -38,6 +39,7 @@ NodeJS v20.10.0 with NPM v10.2.3
 - ~Remove imperial units altogether~
 - ~new formula: BPI(plied) = TPI(singles) \* numPlies (included in plied WPI app as optional)~
 - ~Add Home app with welcome text and inspiration~
+- ~Convert Sock Calculator tests to Table-driven tests~
 
 ## Useful commands
 because sometimes I don't use Angular for months at a time...
