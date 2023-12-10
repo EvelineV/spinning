@@ -23,6 +23,7 @@ NodeJS v20.10.0 with NPM v10.2.3
 - Add Hat knitting app
 - Add backend to save projects
 - upgrade to Angular 17
+- update design with more modern shapes and colors
 
 ## Done
 
@@ -54,5 +55,6 @@ npm test
 
 #### Release to the world
 ```
-ng run spinning:deploy
+npm run prod
+npm run deploy
 ```
