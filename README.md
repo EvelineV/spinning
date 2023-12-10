@@ -44,7 +44,7 @@ because sometimes I don't use Angular for months at a time...
 
 #### initial setup
 ```
-npm install -g @angular/cli
+npm install -g @angular/cli @angular-eslint/schematics@17.1.1
 ```
 
 #### day-to-day
