@@ -1,13 +1,3 @@
-/*
-  https://www.schemecolor.com/teal-and-gold.php
-  The Teal And Gold Color Scheme palette has 5 colors which are
-  Skobeloff (#006C77),
-  Teal (#008182),
-  Goldenrod (#DBA620),
-  Chinese Gold (#CC9802) and
-  Dark Goldenrod (#B7850E)
-*/
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -27,6 +17,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-weight: bold;
 }
 
 li a:hover {
@@ -35,8 +26,4 @@ li a:hover {
 
 li a.active {
     background-color: #DBA620;
-}
-
-h1 {
-    margin-left: 1em;
 }

@@ -1,8 +1,17 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
-/* Application-wide Styles */
+/*
+  https://www.schemecolor.com/teal-and-gold.php
+  The Teal And Gold Color Scheme palette has 5 colors which are
+  Skobeloff (#006C77),
+  Teal (#008182),
+  Goldenrod (#DBA620),
+  Chinese Gold (#CC9802) and
+  Dark Goldenrod (#B7850E)
+*/
 
 h1 {
+  margin-left: 1em;
   color: #006C77;
   font-size: 250%;
 }
@@ -17,6 +26,10 @@ div.container {
   margin-left: 2em;
   margin-right: 2em;
 
+}
+
+a {
+  color: #006C77;
 }
 
 input {
