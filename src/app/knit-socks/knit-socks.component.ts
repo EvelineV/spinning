@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FootMeasurements, SockGaugeSettings, SockInstructions } from './types';
+import { FootMeasurements, SockInstructions } from './types';
 import { calculateSock } from './calculators';
 import { GaugeSettings } from '../knit-gauge-component/types';
 import { defaultDistanceInCM } from '../knit-gauge-component/constants';

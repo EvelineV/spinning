@@ -60,6 +60,6 @@
     <p>You should now have {{ instructions.foot.stitchesInRound / 2 }} stitches in the heel flap. On the knit rows, slip every odd stitch and knit every even stitch, use an SSK to incorporate a gusset stitch at the end of the row. On the purl rows, purl all the stitches, use a p2tog to incorporate a gusset stitch at the end of the row. When you have {{ instructions.foot.stitchesInRound / 2 + 1 }} stitches left on the heel needle, knit the instep needle. At the beginning of the next heel needle, knit the last gusset stitch together with the first stitch of the heel flap.</p>
 
     <h3>Leg</h3>
-    <p>Knit the leg of the sock in stockinette with {{ instructions.roundLegStitches }} stitches in the round. When the sock is high enough, make a ribbed cuff and finish with an elastic bindoff.</p>
+    <p><span *ngIf="instructions.leg.action">{{ instructions.leg.action | titlecase }} {{instructions.leg.legIncreases}} stitches evenly spaced in the first leg round. </span>Knit the leg of the sock in stockinette with {{ instructions.leg.roundLegStitches }} stitches in the round. When the sock is high enough, make a ribbed cuff and finish with an elastic bindoff.</p>
   </div>
 </div>

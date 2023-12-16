@@ -1,5 +1,5 @@
 import { RoundUpToMultipleOf } from "../roundUpToMultiple.utils";
-import { Foot, FootMeasurements, SockGaugeSettings, Heel, SockInstructions, Toe } from "./types";
+import { Foot, FootMeasurements, SockGaugeSettings, Heel, Leg, SockInstructions, Toe } from "./types";
 
 export function getStitchesInRound(circumference: number, gauge: SockGaugeSettings): number {
   const stitchesPerUnit = gauge.horizontalStitches / gauge.horizontalDistance;
@@ -48,11 +48,18 @@ export function calculateSock(foot: FootMeasurements, gauge: SockGaugeSettings):
   const footRows = totalRows - toe.rows - heel.gussetRows - heel.bottomRows;
   const straightFoot = new Foot({ rows: footRows, stitchesInRound: roundFootStitches });
   const roundLegStitches = getStitchesInRound(foot.legCircumference, gauge);
+  const increaseLegStitches = roundLegStitches - roundFootStitches;
+  const legAction = increaseLegStitches == 0 ? null : (increaseLegStitches > 0 ? 'increase' : 'decrease');
+  const leg = new Leg({
+    roundLegStitches: roundLegStitches,
+    action: legAction,
+    legIncreases: Math.abs(increaseLegStitches),
+  })
 
   return new SockInstructions({
     toe: toe,
     foot: straightFoot,
-    roundLegStitches: roundLegStitches,
+    leg: leg,
     heel: heel,
   });
 }
