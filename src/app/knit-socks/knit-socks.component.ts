@@ -20,7 +20,7 @@ export class KnitSocksComponent implements OnInit {
     needle: "2.25mm DPN",
     yarn: "Random Superwash Sock",
    });
-  ease: number = -5; // percentage
+  ease: number = -10; // percentage
   instructions?: SockInstructions;
 
   ngOnInit(): void {
