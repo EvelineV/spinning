@@ -1,6 +1,6 @@
 import { getStitchesInRound, getToe, getRows, getHeel, calculateSock } from './calculators';
 import { defaultDistanceInCM } from '../knit-gauge-component/constants';
-import { FootMeasurements, SockGaugeSettings, Toe, Heel, SockInstructions, Foot } from './types';
+import { FootMeasurements, SockGaugeSettings, Toe, Heel, Leg, SockInstructions, Foot } from './types';
 
 const gaugeRandom = new SockGaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 30, verticalStitches: 42, needle: "2.25mm DPN", yarn: "Random Superwash Sock"});
 const gaugeSixPly = new SockGaugeSettings({ease: -10, horizontalDistance: defaultDistanceInCM, verticalDistance: defaultDistanceInCM, horizontalStitches: 28, verticalStitches: 45, needle: "2.75mm DPN", yarn: "Lana Grossa Meilenweit 6-ply"});
@@ -74,7 +74,11 @@ describe('calculateSock', ()=>{
       expected: new SockInstructions({
         toe: new Toe({castOnStitches: 32, rows: 14}),
         foot: new Foot({ rows: 51, stitchesInRound: 60}),
-        roundLegStitches: 64,
+        leg: new Leg({
+          roundLegStitches: 64,
+          action: 'increase',
+          legIncreases: 4,
+        }),
         heel: new Heel({
           startTurnStitches: 20,
           endTurnStitches: 4,
@@ -93,7 +97,11 @@ describe('calculateSock', ()=>{
       expected: new SockInstructions({
         toe: new Toe({castOnStitches: 32, rows: 16}),
         foot: new Foot({ rows: 49, stitchesInRound: 64}),
-        roundLegStitches: 68,
+        leg: new Leg({
+          roundLegStitches: 68,
+          action: 'increase',
+          legIncreases: 4,
+        }),
         heel: new Heel({
           startTurnStitches: 22,
           endTurnStitches: 4,
@@ -106,13 +114,40 @@ describe('calculateSock', ()=>{
       }),
       totalRows: 101,
     }, {
+      name: 'size 38 with very skinny leg',
+      foot: {...footE, legCircumference: 20,},
+      gauge: gaugeRandom,
+      expected: new SockInstructions({
+        toe: new Toe({castOnStitches: 32, rows: 14}),
+        foot: new Foot({ rows: 51, stitchesInRound: 60}),
+        leg: new Leg({
+          roundLegStitches: 56,
+          action: 'decrease',
+          legIncreases: 4,
+        }),
+        heel: new Heel({
+          startTurnStitches: 20,
+          endTurnStitches: 4,
+          bottomRows: 16,
+          flapRows: 30,
+          gussetStitchesAtWidest: 80,
+          gussetRows: 20,
+          extraIncreases: 5,
+        }),
+      }),
+      totalRows: 101,
+    }, {
       name: 'size 43',
       foot: footB,
       gauge: gaugeSixPly,
       expected: new SockInstructions({
         toe: new Toe({castOnStitches: 36, rows: 18}),
         foot: new Foot({rows: 60, stitchesInRound: 72}),
-        roundLegStitches: 72,
+        leg: new Leg({
+          roundLegStitches: 72,
+          action: null,
+          legIncreases: 0,
+        }),
         heel: new Heel({
           startTurnStitches: 24,
           endTurnStitches: 4,

@@ -72,16 +72,28 @@ export class Toe {
   }
  }
 
+ export class Leg {
+  public roundLegStitches?: number;
+  public legIncreases?: number;
+  public action?: 'increase'|'decrease'|null;
+  
+  constructor(payload: Partial<Leg>) {
+    this.roundLegStitches = payload.roundLegStitches || 0;
+    this.legIncreases = payload.legIncreases || 0;
+    this.action = payload.action || null;
+  }
+ }
+
  export class SockInstructions {
   public toe: Toe;
   public foot: Foot;
-  public roundLegStitches?: number;
   public heel: Heel;
+  public leg: Leg;
 
   constructor(payload: Partial<SockInstructions>){
     this.toe = payload.toe || new Toe({});
     this.foot = payload.foot || new Foot({});
-    this.roundLegStitches = payload.roundLegStitches || 0;
+    this.leg = payload.leg || new Leg({});
     this.heel = payload.heel || new Heel({});
   }
  }
