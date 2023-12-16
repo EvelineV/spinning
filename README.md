@@ -44,12 +44,12 @@ NodeJS v20.10.0 with NPM v10.2.3
 ## Useful commands
 because sometimes I don't use Angular for months at a time...
 
-#### initial setup
+#### Initial setup
 ```
 npm install -g @angular/cli @angular-eslint/schematics@17.1.1
 ```
 
-#### day-to-day development
+#### Day-to-day development
 ```
 npm ci
 ng generate component <name>
@@ -62,5 +62,6 @@ ng serve --open
 npm run deploy
 ```
 
-#### Note to self
-[Favicon](https://www.svgrepo.com/svg/51340/sheep) taken under CC0 license (no attribution required).
+#### Notes to self
++ [Favicon](https://www.svgrepo.com/svg/51340/sheep) taken under CC0 license (no attribution required).
++
