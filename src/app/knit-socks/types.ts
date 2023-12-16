@@ -59,6 +59,7 @@ export class Toe {
   public flapRows: number;
   public gussetStitchesAtWidest: number;
   public gussetRows: number;
+  public extraIncreases: number;
 
   constructor(payload: Partial<Heel>){
     this.startTurnStitches = payload.startTurnStitches || 0;
@@ -67,6 +68,7 @@ export class Toe {
     this.flapRows = payload.flapRows || 0;
     this.gussetStitchesAtWidest = payload.gussetStitchesAtWidest || 0;
     this.gussetRows = payload.gussetRows || 0;
+    this.extraIncreases = payload.extraIncreases || 0;
   }
  }
 

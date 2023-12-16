@@ -45,7 +45,15 @@ describe('getRows', ()=>{
 
 describe('getHeel', ()=>{
   it('size 38', ()=>{
-    const expectedHeel = new Heel({startTurnStitches: 20, endTurnStitches: 4, bottomRows: 16, flapRows: 30, gussetStitchesAtWidest: 80, gussetRows: 20});
+    const expectedHeel = new Heel({
+      startTurnStitches: 20,
+      endTurnStitches: 4,
+      bottomRows: 16,
+      flapRows: 30,
+      gussetStitchesAtWidest: 80,
+      gussetRows: 20,
+      extraIncreases: 5,
+    });
     expect(getHeel(60, footE, gaugeRandom)).toEqual(expectedHeel);
   });
 });
@@ -67,7 +75,15 @@ describe('calculateSock', ()=>{
         toe: new Toe({castOnStitches: 32, rows: 14}),
         foot: new Foot({ rows: 51, stitchesInRound: 60}),
         roundLegStitches: 64,
-        heel: new Heel({startTurnStitches: 20, endTurnStitches: 4, bottomRows: 16, flapRows: 30, gussetStitchesAtWidest: 80, gussetRows: 20}),
+        heel: new Heel({
+          startTurnStitches: 20,
+          endTurnStitches: 4,
+          bottomRows: 16,
+          flapRows: 30,
+          gussetStitchesAtWidest: 80,
+          gussetRows: 20,
+          extraIncreases: 5,
+        }),
       }),
       totalRows: 101,
     }, {
@@ -78,7 +94,15 @@ describe('calculateSock', ()=>{
         toe: new Toe({castOnStitches: 32, rows: 16}),
         foot: new Foot({ rows: 49, stitchesInRound: 64}),
         roundLegStitches: 68,
-        heel: new Heel({startTurnStitches: 22, endTurnStitches: 4, bottomRows: 18, flapRows: 30, gussetStitchesAtWidest: 82, gussetRows: 18}),
+        heel: new Heel({
+          startTurnStitches: 22,
+          endTurnStitches: 4,
+          bottomRows: 18,
+          flapRows: 30,
+          gussetStitchesAtWidest: 82,
+          gussetRows: 18,
+          extraIncreases: 5,
+        }),
       }),
       totalRows: 101,
     }, {
@@ -96,6 +120,7 @@ describe('calculateSock', ()=>{
           flapRows: 30,
           gussetStitchesAtWidest: 84,
           gussetRows: 12,
+          extraIncreases: 6,
         }),
       }),
       totalRows: 110,

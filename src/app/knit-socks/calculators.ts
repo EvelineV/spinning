@@ -27,6 +27,7 @@ export function getHeel(roundFootStitches: number, foot: FootMeasurements, gauge
 
   const gussetStitchesAtWidest = startTurnStitches + 2 * flapRows;
   const gussetRows = gussetStitchesAtWidest - roundFootStitches;
+  const extraIncreases = (roundFootStitches/2 - startTurnStitches) / 2;
 
   return new Heel({
     startTurnStitches,
@@ -35,6 +36,7 @@ export function getHeel(roundFootStitches: number, foot: FootMeasurements, gauge
     flapRows,
     gussetStitchesAtWidest,
     gussetRows,
+    extraIncreases,
   });
 }
 
