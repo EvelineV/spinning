@@ -49,7 +49,7 @@ export function calculateSock(foot: FootMeasurements, gauge: SockGaugeSettings):
   const straightFoot = new Foot({ rows: footRows, stitchesInRound: roundFootStitches });
   const roundLegStitches = getStitchesInRound(foot.legCircumference, gauge);
   const increaseLegStitches = roundLegStitches - roundFootStitches;
-  const legAction = increaseLegStitches == 0 ? null : (increaseLegStitches > 0 ? 'increase' : 'decrease');
+  const legAction = increaseLegStitches === 0 ? null : (increaseLegStitches > 0 ? 'increase' : 'decrease');
   const leg = new Leg({
     roundLegStitches: roundLegStitches,
     action: legAction,
