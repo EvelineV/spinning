@@ -13,8 +13,8 @@ export class KnitGaugeComponent implements OnInit {
     verticalDistance: defaultDistanceInCM,
     horizontalStitches: 30,
     verticalStitches: 42,
-    needle: "2.25mm DPN",
-    yarn: "Random Superwash Sock",
+    needle: "",
+    yarn: "",
   });
 
   @Output() emitter = new EventEmitter<GaugeSettings>();

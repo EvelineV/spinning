@@ -12,12 +12,22 @@
     </div>
 
     <div class="form-group">
-      <label for="needle">Needle size</label>
-      <input type="text" class="form-control" id="needle" name="needle" [(ngModel)]="gaugeModel.needle" (change)="onChange()">
+      <label for="needle">Needle size
+        <app-tooltip
+          label="and notes"
+          text="(this is a free text field, but please record your needle size and material here)"
+        ></app-tooltip>
+      </label>
+      <input type="text" class="form-control" id="needle" name="needle" [(ngModel)]="gaugeModel.needle" (change)="onChange()" placeholder="2.25 mm metal DPNs, or wooden US0 small circulars, or whatever">
     </div>
 
     <div class="form-group">
-      <label for="yarn">Yarn</label>
-      <input type="text" class="form-control" id="yarn" name="yarn" [(ngModel)]="gaugeModel.yarn" (change)="onChange()">
+      <label for="yarn">Yarn
+        <app-tooltip
+          label="notes"
+          text="(this is a free text field, but please record your yarn info)"
+        ></app-tooltip>
+      </label>
+      <input type="text" class="form-control" id="yarn" name="yarn" [(ngModel)]="gaugeModel.yarn" (change)="onChange()" placeholder="4-ply superwash sock, or handspun cheviot, or whatever">
     </div>
   </form>
