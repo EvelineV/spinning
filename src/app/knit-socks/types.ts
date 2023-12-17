@@ -25,8 +25,8 @@ export class SockGaugeSettings extends GaugeSettings{
       verticalDistance: defaultDistanceInCM,
       horizontalStitches: 30,
       verticalStitches: 42,
-      needle: "2.25mm DPN",
-      yarn: "Random Superwash Sock",
+      needle: "",
+      yarn: "",
     });
     this.ease = payload.ease || -5;
   }

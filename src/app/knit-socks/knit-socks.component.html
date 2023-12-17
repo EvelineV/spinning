@@ -7,10 +7,10 @@
       <label for="ease">Ease
         <app-tooltip
           label="(percent)"
-          text="(amount of stretch, socks should have a little negative ease)"
+          text="(amount of stretch, socks should have a little negative ease, -10&percnt; or -15&percnt; is usually a good value)"
         ></app-tooltip>
       </label>
-      <input type="number" class="form-control" id="ease" min=-20 max=20 value=-5 required
+      <input type="number" class="form-control" id="ease" min=-50 max=50 value=-10 required
           [(ngModel)]="ease" (change)="resetSubmitted()" name="ease">
     </div>
 
