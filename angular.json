@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "spinning:build:production"
+              "buildTarget": "spinning:build:production"
             },
             "development": {
-              "browserTarget": "spinning:build:development"
+              "buildTarget": "spinning:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "spinning:build"
+            "buildTarget": "spinning:build"
           }
         },
         "test": {
